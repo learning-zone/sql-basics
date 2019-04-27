@@ -10,4 +10,4 @@
 1. Difference between procedures and triggers
 1. How do you find third highest salary
 1. How to prevent from database attacks/SQL Injection?
-1. What is SQL injection attack?
+
