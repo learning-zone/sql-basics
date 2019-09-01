@@ -1,9 +1,9 @@
 ## MySQL Interview Questions
 
-#### Q. What are indexes in a Database. What are the types of indexes?
+#### Q. What are indexes in a Database? What are the types of indexes?
 #### Q. What are the different tables present in MySQL?
 #### Q. What are the technical features of MySQL? 
-#### Q. SELECT, LIKE, IN, Regular-Expression, Datatypes, Sub-Query, 
+#### Q. Explain SELECT, LIKE, IN, Regular-Expression, Datatypes, Sub-Query in mySQL?
 #### Q. Explain JOIN Query in mySQL?
 #### Q. Explain Stored Procedure, View, Event, triggers in mySQL?
 #### Q. Explain Transaction in mySQL?
