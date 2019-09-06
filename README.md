@@ -1,5 +1,7 @@
 ## MySQL Interview Questions
 
+> Click :star: if you like the project. Pull Request are highly appreciated.
+
 #### Q. What are indexes in a Database? What are the types of indexes?
 #### Q. What are the different tables present in MySQL?
 #### Q. What are the technical features of MySQL? 
