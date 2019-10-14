@@ -1,6 +1,6 @@
 ## MySQL Interview Questions
 
-*Click :star2: if you like the project. Pull Request are highly appreciated.*
+*Click <img src="https://github.com/learning-zone/mysql-interview-questions/blob/master/assets/star.png" width="20" height="20" align="absmiddle" title="Star" /> if you like the project. Pull Request are highly appreciated.*
 
 #### Q. What are indexes in a Database? What are the types of indexes?
 #### Q. What are the different tables present in MySQL?
