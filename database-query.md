@@ -441,7 +441,7 @@
 
 #### MYSQL FUNCTIONS
 
-
+```
 mysqli_affected_rows()            Returns the number of affected rows in the previous MySQL operation
 mysqli_autocommit()               Turns on or off auto-committing database modifications
 mysqli_change_user()              Changes the user of the specified database connection
@@ -511,6 +511,5 @@ mysqli_thread_id()                Returns the thread ID for the current connecti
 mysqli_thread_safe()              Returns whether the client library is compiled as thread-safe
 mysqli_use_result()               Initiates the retrieval of a result set from the last query executed using the mysqli_real_query()
 mysqli_warning_count()            Returns the number of warnings from the last query in the connection
-
-
+```
 
