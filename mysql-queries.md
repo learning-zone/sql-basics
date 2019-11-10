@@ -81,3 +81,11 @@ In database management, an aggregate function is a function where the values of 
 | 06. |DELETE FROM t |Delete all the rows from a table named t|
 | 07. |DELETE FROM tWHERE condition	|Delete all rows from that a table named t that match a certain condition|
 
+
+#### Views
+
+A view is a virtual table that is a result of a query. They can be extremely useful and are often used as a security mechanism, letting users access the data through the view, rather than letting them access the underlying base table:
+
+|Sl.No|Query            | Description                                       |
+|-----|-----------------|---------------------------------------------------|
+| 01. |CREATE VIEW view1 AS SELECT c1, c2 FROM t1 WHERE condition|Create a view, comprising of columns c1 and c2 from a table named t1 where a certain condition has been met.|
