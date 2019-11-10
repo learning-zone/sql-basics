@@ -58,8 +58,8 @@ In database management, an aggregate function is a function where the values of 
 
 #### Using SQL Operators
 
-|Sl.No|Query            | Description                                       |
-|-----|-----------------|---------------------------------------------------|
+|Sl.No|Query                                           | Description                                       |
+|-----|------------------------------------------------|---------------------------------------------------|
 | 01. |SELECT c1 FROM t1 UNION [ALL] SELECT c1 FROM t2 |Select column c1 from a table named t1 and column c1 from a table named t2 and combine the rows from these two queries |
 | 02. |SELECT c1 FROM t1 INTERSECT SELECT c1 FROM t2 |Select column c1 from a table named t1 and column c1 from a table named t2 and return the intersection of two queries |
 | 03. |SELECT c1 FROM t1 MINUS SELECT c1 FROM t2 |Select column c1 from a table named t1 and column c1 from a table named t2 and subtract the 2nd result set from the 1st|
@@ -86,8 +86,8 @@ In database management, an aggregate function is a function where the values of 
 
 A view is a virtual table that is a result of a query. They can be extremely useful and are often used as a security mechanism, letting users access the data through the view, rather than letting them access the underlying base table:
 
-|Sl.No|Query            | Description                                       |
-|-----|-----------------|---------------------------------------------------|
+|Sl.No|Query                                                     | Description                                       |
+|-----|----------------------------------------------------------|---------------------------------------------------|
 | 01. |CREATE VIEW view1 AS SELECT c1, c2 FROM t1 WHERE condition|Create a view, comprising of columns c1 and c2 from a table named t1 where a certain condition has been met.|
 
 
@@ -100,3 +100,12 @@ An index is used to speed up the performance of queries by reducing the number o
 | 01. |CREATE INDEX index_nameON t(c1, c2) |Create an index on columns c1 and c2 of the table t |
 | 02. |CREATE UNIQUE INDEX index_name ON t(c3, c4) |Create a unique index on columns c3 and c4 of the table t |
 | 03. |DROP INDEX index_name |Drop an index |
+
+
+#### Stored procedure
+
+A stored procedure is a set of SQL statements with an assigned name that can then be easily reused and share by multiple programs:
+
+|Sl.No|Query                               | Description                                       |
+|-----|------------------------------------|---------------------------------------------------|
+| 01. |CREATE PROCEDURE procedure_name  @variable AS datatype = value AS -- Comments SELECT * FROM tGO |Create a procedure called procedure_name, create a local variable and then select from table t|
