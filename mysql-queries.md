@@ -102,10 +102,42 @@ An index is used to speed up the performance of queries by reducing the number o
 | 03. |DROP INDEX index_name |Drop an index |
 
 
-#### Stored procedure
+#### Stored Procedure
 
 A stored procedure is a set of SQL statements with an assigned name that can then be easily reused and share by multiple programs:
 
 |Sl.No|Query                               | Description                                       |
 |-----|------------------------------------|---------------------------------------------------|
 | 01. |CREATE PROCEDURE procedure_name  @variable AS datatype = value AS -- Comments SELECT * FROM tGO |Create a procedure called procedure_name, create a local variable and then select from table t|
+
+
+#### Triggers
+
+A trigger is a special type of stored procedure that automatically executes when a user tries to modify data through a DML event (data manipulation language). A DML event is an INSERT, UPDATE or DELETE statement on a table or view:
+
+```sql
+CREATE OR MODIFY TRIGGER trigger_name
+WHEN EVENT
+
+ON table_name TRIGGER_TYPE
+
+EXECUTE stored_procedure
+```
+
+WHEN:
+* BEFORE – invoke before the event occurs
+* AFTER – invoke after the event occurs
+
+EVENT:
+* INSERT – invoke for insert
+* UPDATE – invoke for update
+* DELETE – invoke for delete
+
+TRIGGER_TYPE:
+* FOR EACH ROW
+* FOR EACH STATEMENT
+
+```sql
+!-- Delete a specific trigger
+DROP TRIGGER trigger_name	
+```
