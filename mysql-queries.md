@@ -67,3 +67,17 @@ In database management, an aggregate function is a function where the values of 
 | 05. |SELECT c1 FROM t WHERE c1 [NOT] in test_list |Select column c1 from a table name t and return the rows that are (or are not) in test_list |
 | 06. |SELECT c1 FROM t WHERE c1 BETWEEN min AND max |Select column c1 from a table named t and return the rows where c1 is between min and max|
 | 07. |SELECT c1 FROM t WHERE c1 IS [NOT] NULL|Select column c1 from a table named t and check if the values are NULL or not |
+
+
+#### Data modification
+
+|Sl.No|Query            | Description                                       |
+|-----|-----------------|---------------------------------------------------|
+| 01. |INSERT INTO t(column_list) VALUES(value_list)|Insert one row into a table named t|
+| 02. |INSERT INTO t(column_list) VALUES (value_list), (value_list), … |Insert multiple rows into a table named t|
+| 03. |INSERT INTO t1(column_list) SELECT column_list FROM t2 |Insert rows from t2 into a table named t1|
+| 04. |UPDATE tSET c1 = new_value	|Update a new value in table t in the column c1 for all rows|
+| 05. |UPDATE tSET c1 = new_value, c2 = new_value WHERE condition|Update values in column c1 and c2 in table t that match the condition|
+| 06. |DELETE FROM t |Delete all the rows from a table named t|
+| 07. |DELETE FROM tWHERE condition	|Delete all rows from that a table named t that match a certain condition|
+
