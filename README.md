@@ -4,7 +4,7 @@
 
 ### Table of Contents
 
-* [MySQL Queries](mysql-queries.md)
+* *[MySQL Queries](mysql-queries.md)*
 
 
 #### Q. What are indexes in a Database? What are the types of indexes?
