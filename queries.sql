@@ -32,6 +32,8 @@ select * from employee;
 select * from bonus;
 
 select * from employee where employee_id in (select employee_ref_id from bonus where employee.employee_id = bonus.employee_ref_id);
+-- This can also be used using left join.
+select e.* from employee e join bonus b on e.employee_id = b.employee_ref_id;
 
 -- 8> Write a SQL query to find only odd rows from employee table
 select * from employee where MOD(employee_id,2)<>0;
@@ -52,6 +54,9 @@ select first_name, last_name, salary from employee where salary between 100000 a
 select * from employee;
 
 select first_name, last_name, joining_date from employee where year(joining_date)=2017 and month(joining_date) = 1;
+-- incase you have an index on the joining_date column, it will not be used as index is not used when the indexed column is used in a function.
+-- So, prefer this query instead which will use a range scan.
+select first_name, last_name, joining_date from employee where joining_date between '2017-01-01' and '2017-02-01';
 
 -- 14> Write a SQL query to get the list of employees with the same salary
 select e1.first_name, e2.last_name from employee e1, employee e2 where e1.salary = e2.salary and e1.employee_id != e2.employee_id; 
