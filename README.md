@@ -8,7 +8,7 @@
 * *[MySQL Basics](sql-commands.md)*
 * *[RDBMS Questions](rdbms-questions.md)*
 
-## Q. What are indexes in a Database? What are the types of indexes?
+## Q. What are indexes in a Database?
 
 An index is a database structure that you can use to improve the performance of database activity. A database table can have one or more indexes associated with it. An index is defined by a field expression that you specify when you create the index. Typically, the field expression is a single field name, like EMP_ID.
 
