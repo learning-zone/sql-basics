@@ -6,7 +6,8 @@
 
 * *[MySQL Queries](mysql-queries.md)*
 * *[MySQL Basics](sql-commands.md)*
-* *[RDBMS Questions](rdbms-questions.md)*
+
+<br/>
 
 ## Q. What are indexes in a Database?
 
