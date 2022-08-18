@@ -73,14 +73,14 @@ Both of them are used for string type data. `char` has fixed length and if the i
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-#### Why a database is called as relational database model?
+## Q. Why a database is called as relational database model?
 
 A database model represents the relationship between one or more databases. The relationship is known as the 
 relational database model. It is an extension of the normal databases without relations. It provides flexibility 
 and allows one database to be in relation with another database. It can access the data from many databases at 
 one time over the network.
 
-#### What are entities and attributes referring to?
+## Q. What are entities and attributes referring to?
 
 - Table consists of some properties that are known as attributes. 
 - These consist of the representation of entity in the table. 
@@ -88,7 +88,7 @@ one time over the network.
 - Entity is referred to the store data about any particular thing.
 - It is the smallest unit inside the table.
 
-#### What do you understand by relation in relational database model?
+## Q. What do you understand by relation in relational database model?
 
 Relation in the relational database model is defined as the set of tuples that have the same attributes. 
 Tuple represents an object and also the information that the object contains. Objects are basically instances 
@@ -96,7 +96,7 @@ of classes and used to hold the larger picture. Relation is described as a table
 columns. The data referenced by the relation come in the same domain and have the same constraints as well. 
 Relations in the relational database model can be modified using the commands like insert, delete etc. 
 
-#### Why domain is of high importance?
+## Q. Why domain is of high importance?
 
 - Domain describes possible values grouped together that can be given for an attribute. It is considered the 
   same way as a constraint on the value of attribute.
@@ -104,7 +104,7 @@ Relations in the relational database model can be modified using the commands li
 
 For example: XYZ doesn’t fulfill the domain constraint but the integer value as 899 fulfills the criteria of domain constraint. Hence, domain is of high importance.
 
-#### What is the difference between base and derived relation?
+## Q. What is the difference between base and derived relation?
 
 - Relational database means the relationship between different databases. In relational database user can store and access all the data through the tables which are related to each other. 
 
@@ -112,11 +112,11 @@ For example: XYZ doesn’t fulfill the domain constraint but the integer value a
 
 - Derived relations are more useful then base relation, as they can have more information from many relations, but they act as a single relation.
 
-#### What are constraints in database?
+## Q. What are constraints in database?
 
 Constraints are kind of restrictions that are applied to the database or on the domain of an attribute. For example an integer attribute is restricted from 1-10 and not more than that. They provide the way to implement the business logic and the rules in database. In database it can be implemented in the form of check constraints that checks for the rules that haven’t been followed by the programmer. Constraint also used to restrict the data that can be stored in the relations. Domain constraint can be applied to check the domain functionality and keep it safe..
 
-#### What are the two principles of relational database model? What is the difference between them?
+## Q. What are the two principles of relational database model? What is the difference between them?
 
 The two principal rules for the relational model are as follows:
 
@@ -129,23 +129,23 @@ The differences between them are as follows:
 - Referential integrity is based on entity integrity but it is not the other way around.
 - For example: if a table is present and there is a set of column out of which one column has parent key set then to ensure that the table doesn’t contain any duplicate values, a unique index is defined on the column that contains the parent key.
 
-#### What is the difference between primary and foreign key?
+## Q. What is the difference between primary and foreign key?
 
 - Primary key uniquely identify a relationship in a database, whereas foreign key is the key that is in other relation and it has been referenced from the primary key from other table.
 - Primary key remains one only for the table, whereas there can be more than one foreign key.
 - Primary key is unique and won’t be shared between many tables, but foreign key will be shared between more than one table and will be used to tell the relationship between them.
 
-#### Why stored procedures are called as executable code?
+## Q. Why stored procedures are called as executable code?
 
 Stored procedure stored inside the database. This also includes the executable code that usually collects and customizes the operations like insert, encapsulation, etc. These stored procedures are used as APIs for simplicity and security purposes. The implementation of it allows the developers to have procedural extensions to the standard SQL syntax. Stored procedure doesn’t come as a part of relational database model, but can be included in many implementations commercially.
 
-#### What is an index represent in relational database model?
+## Q. What is an index represent in relational database model?
 
 - Index is a way to provide quick access to the data and structure. It has indexes maintain and can be created to combine attributes on a relation. Index allows the queries to filter out the searches faster and matching data can be found earlier with simplicity. 
 
 - For example: It is same as the book where by using the index you can directly jump to a defined section. In relational database there is a provision to give multiple indexing techniques to optimize the data distribution.
 
-#### What are the relational operations that can be performed on the database?
+## Q. What are the relational operations that can be performed on the database?
 
 There are many relational operators that are used to perform actions on relational database. These operators are as follows:
 
@@ -154,7 +154,7 @@ There are many relational operators that are used to perform actions on relation
 3. Difference operator provide the output by taking two relations and producing the difference of rows from first that don’t exist in second.
 4. Cartesian product is done on two relations. It acts as a cross join operator.
 
-#### What do you understand by database Normalization?
+## Q. What do you understand by database Normalization?
 
 - Normalization is very essential part of relational model. 
 - Normal forms are the common form of normalization. 
@@ -162,7 +162,7 @@ There are many relational operators that are used to perform actions on relation
 - It has some disadvantages as it increases complexity and have some overhead of processing.
 - It consists of set of procedures that eliminates the domains that are non-atomic and redundancy of data that prevents data manipulation and loss of data integrity.
 
-#### What are the different types of normalization that exists in the database?
+## Q. What are the different types of normalization that exists in the database?
 
 There are 9 normalizations that are used inside the database. These are as follows:
 1. First normal form: in this table represents a relation that has no repeating groups.
@@ -175,7 +175,7 @@ There are 9 normalizations that are used inside the database. These are as follo
 8. Domain/key normal form (DKNF): “Every constraint on the table is a logical consequence of the table's domain constraints and key constraints”.
 9. Sixth normal form (6NF): “Table features no non-trivial join dependencies at all”.
 
-#### How de-normalization is different from normalization?
+## Q. How de-normalization is different from normalization?
 
 - Analytical processing databases are not very normalized. The operations which are used are read most databases. 
 - It is used to extract the data that are ancient and accumulated over long period of time. For this purpose de-normalization occurs that provide smart business applications.
@@ -184,7 +184,7 @@ There are 9 normalizations that are used inside the database. These are as follo
 - There should be constraint that user should not be allowed to view the state till it is consistent.
 - It is used to increase the performance on many systems without RDBMS platform.
 
-#### What is the type of de-normalization?
+## Q. What is the type of de-normalization?
 
 Non-first normal form (NFA) 
 
@@ -192,7 +192,7 @@ Non-first normal form (NFA)
 - It keeps the values in structured and specialized types with their own domain specific languages. 
 - The query language used in this is extended to incorporate more support for relational domain values by adding more operators.
 
-#### How many levels of data abstraction are available?
+## Q. How many levels of data abstraction are available?
 
 There are three levels of data abstraction available in database model and these are as follows:
 
@@ -200,14 +200,14 @@ There are three levels of data abstraction available in database model and these
 2. Logical level: It is the next higher level in the hierarchy that provides the abstraction. It describes what data are stored and the relationship between them.
 3. View level: It is the highest level in hierarchy that describes part of the entire database. It allows user to view the database and do the query.
 
-#### What is the difference between extension and intension?
+## Q. What is the difference between extension and intension?
 
 The major difference between extension and intension is that:
 
 - Extension is time dependent, whereas intension includes a constant value.
 - Extension tells about the number of tuples presented in a table at any instance, whereas intension gives the name, structure and constraint of the table.
 
-#### What are its two major subsystems of System R?
+## Q. What are its two major subsystems of System R?
 
 System R is being developed by IBM. Its purpose is to demonstrate the possible solution to build a relational database system. The relational database system has to be such that which can interact with the real life environment to sole real life scenarios.
 
@@ -216,7 +216,7 @@ The two subsystems that are included in it are:
 1. Research storage: This includes the research information of the database.
 2. System relational system: This includes the relational data that a system has to produce and keep everything in relation.
 
-#### What do you understand by Data Independence?
+## Q. What do you understand by Data Independence?
 
 Data independence tells about the independence of the data inside the application. It usually deals with the storage structure and represents the ability to modify the schema definition. It doesn’t affect the schema definition which is being written on the higher level. 
 
@@ -227,25 +227,25 @@ There are two types of data independence:
 
 NOTE: Logical Data Independence is more difficult to achieve.
 
-#### How view is related to data independence?
+## Q. How view is related to data independence?
 
 - View is a virtual table that doesn’t really exist, but it remains present so that user can view their data.
 - It is derived from the base table. The view is stored in the data dictionary and represents the file directly. 
 - The base table updation or reconstruction is not being reflected in views.
 - It is related to the logical data independence as it is at the logical level and not at the physical level.
 
-#### Why E-R models are used?
+## Q. Why E-R models are used?
 
 E-R model stands for entity-relationship model and it is used to represent a model with their relationships. This is an object oriented approach and it is based on real world that consists of objects which are called entities and relationship between them. Entities are further used inside the database in the form of attributes.
 
-#### What is the purpose of acid properties?
+## Q. What is the purpose of acid properties?
 
 - ACID stands for Atomicity, Consistency, Isolation and durability and it plays an important role in the database. 
 - These properties allow the database to be more convenient to access and use. This allows data to be shared more safely in between the tables.
 - If these properties are not being implemented then the data will become inconsistent and inaccurate. 
 - It helps in maintaining the accuracy of the data in the database.
 
-#### What do you understand by cardinality and why it is used?
+## Q. What do you understand by cardinality and why it is used?
 
 - Cardinality is important and used to arrange the data inside the database. 
 - It is related to the design part and need to be properly used in database. 
@@ -255,7 +255,7 @@ E-R model stands for entity-relationship model and it is used to represent a mod
 - Third is many to many M: N that allows many entities to be related to many more.
 - Last is many to one that allows the many entities to be associated with one entity.
 
-#### What is the difference between DBMS and RDBMS?
+## Q. What is the difference between DBMS and RDBMS?
 
 - DBMS is persistent and accessible when the data is created or exists, but RDBMS tells about the relation between the table and other tables.
 - RDBS supports a tabular structure for data and relationship between them in the system whereas DBMS supports only the tabular structure.
@@ -263,7 +263,7 @@ E-R model stands for entity-relationship model and it is used to represent a mod
 
 ---------------------------------------------------
 
-#### What is Index?
+## Q. What is Index?
 
 - A pointer to data having physical representation is called as Index.
 - Record can be located quickly and efficiently by creating Indices on existing tables.
@@ -273,7 +273,7 @@ E-R model stands for entity-relationship model and it is used to represent a mod
 - On large tables, the table scan has huge impact on performance.
 - Clustered and Non clustered indexes are the most widely used indexes in a database.
 
-#### What is Trigger?
+## Q. What is Trigger?
 
 - A Trigger is a process of firing an action when some event like Insert, Update or Delete occurs.
 - A trigger can’t be called or even executed rather they are automatically become active by the DBMS whenever some modification in associated table occur.
@@ -282,7 +282,7 @@ E-R model stands for entity-relationship model and it is used to represent a mod
 - Referential integrity is maintained by the trigger and they are managed and stored by DBMS.
 - Triggers can be nested also, in which Insert, Update or Delete logic can be fired from the trigger itself.
 
-#### What is a NOLOCK?
+## Q. What is a NOLOCK?
 
 - NOLOCK is used to improve concurrency on a busy system.
 - On data read, no lock can be taken on SELECT statement.
@@ -292,7 +292,7 @@ E-R model stands for entity-relationship model and it is used to represent a mod
 - The result to your system is blocking.
 - Update will start on completion of all the reads.
 
-#### What is the STUFF function and how does it differ from the REPLACE function?
+## Q. What is the STUFF function and how does it differ from the REPLACE function?
 
 - Using STUFF function we can overwrite the specified characters of a string.
 The syntax of STUFF function is:
@@ -304,7 +304,7 @@ where stringToChange is the string which will have the characters those we want 
 - The syntax of REPLACE function is REPLACE (string_to_change, string_to_Replace, new_tring).
 - Every occurrence of string_to_change will be replaced by new_string.
 
-#### What are Self Join and Cross Join?
+## Q. What are Self Join and Cross Join?
 
 - When we want to join a table to itself then SELF JOIN is used.
 - We can give one or more aliases to eliminate the confusion.
@@ -313,7 +313,7 @@ where stringToChange is the string which will have the characters those we want 
 - A cross join give the number of rows in the first table multiplied by the number of rows in second table.
 - The simple example where we can use CROSS JOIJ is if in an organization wants to combine every Employee with family table to see each Employee with each family member.
 
-#### What are the advantages of using Stored Procedures?
+## Q. What are the advantages of using Stored Procedures?
 
 - Procedure can reduce network traffic and latency, and can enhance application performance.
 - Procedure execution plans can be reused, staying cached in the management tool's memory, reducing its overhead.
@@ -321,7 +321,7 @@ where stringToChange is the string which will have the characters those we want 
 - The logic can be encapsulated using procedures and can help to change procedure's code without interacting to application.
 - Procedures give more security to our data.
 
-#### What is RANK function?
+## Q. What is RANK function?
 
 - RANK function can be used to give a rank to each row returned from a SELECT statment.
 - For using this function first specify the function name, followed by the empty parentheses.
@@ -332,7 +332,7 @@ SELECT RANK() OVER(ORDER BY BirthDate DESC) AS [RowNumber], FirstName, BirthDate
 - In the result you will see that the eldest employee got the first rank and the youngest employee got the last rank. Here the rows with equal age will get same ranks.
 - The rank depends on the row's position in the result set, but not on the sequential number of the row.
 
-#### What are cursors and when they are useful?
+## Q. What are cursors and when they are useful?
 
 - When we execute any SQL operations, SQL Server opens a work area in memory which is called Cursor.
 - When it is required to perform the row by row operations which are not possible with the set-based operations then cursor is used.
@@ -348,7 +348,7 @@ There are two of cursors:
 - %FOUND, %NOFOUND, %ROWCOUNT and %ISOPEN attributes are used in both types of cursors.
 
 
-#### What is Similarity and Difference between Truncate and Delete in SQL?
+## Q. What is Similarity and Difference between Truncate and Delete in SQL?
 
 - Similarity
 
@@ -366,7 +366,7 @@ There are two of cursors:
 
 5. TRUNCATE is faster than DELETE, because when you use DELETE to delete the data, at that time it store the whole data in rollback space from where you can get the data back after deletion, whereas TRUNCATE will not store data in rollback space and will directly delete it. You can’t get the deleted data back when you use TRUNCATE.
 
-#### What are COMMIT and ROLLBACK in SQL?
+## Q. What are COMMIT and ROLLBACK in SQL?
 
 - COMMIT statement is used to end the current transaction and once the COMMIT statement is exceucted the transaction will be permanent and undone.
 - Syntax: COMMIT;
@@ -395,7 +395,7 @@ END;
 END;
 ```
 
-#### What is a WITH(NOLOCK)?
+## Q. What is a WITH(NOLOCK)?
 
 - WITH(NOLOCK) is used to unlock the data which is locked by the transaction that is not yet committed. This command is used before SELECT statement.
 - When the transaction is committed or rolled back then there is no need to use NOLOCK function because the data is already released by the committed transaction.
@@ -405,7 +405,7 @@ END;
 SELECT * FROM EmpDetails WITH(NOLOCK)
 WITH(NOLCOK) is similar as READ UNCOMMITTED.
 ```
-#### What is difference between Co-related sub query and nested sub query?
+## Q. What is difference between Co-related sub query and nested sub query?
 
 - Correlated subquery executes single time for every row which is selected by the outer query.
 - It has a reference to a value from the row selected by the outer query.
@@ -418,14 +418,14 @@ select e.EmpFirstName, e.Salary, e.DeptId from Employee e where e.Salary = (sele
 - Nested Subquery:
 select EmpFirstName, Salary, DeptId from Employee where (DeptId, Salary) in (select DeptId, max(Salary) from Employee group by DeptId)
 
-#### Differentiate UNION, MINUS, UNION ALL and INTERSECT?
+## Q. Differentiate UNION, MINUS, UNION ALL and INTERSECT?
 
 - INTERSECT - It will give all the distinct rows from both select queries.
 - MINUS - It will give distinct rows returned by the first query but not by the second query.
 - UNION - It will give all distinct rows selected by either first query or second query.
 - UNION ALL - It will give all rows returned by either query with all duplicate records.
 
-#### What is a join? Explain the different types of joins?
+## Q. What is a join? Explain the different types of joins?
 
 Using Join in a query, we can retrieve referenced columns or rows from multiple tables.
 
@@ -436,7 +436,7 @@ Following are different types of Joins:
 3. RIGHT JOIN: It will return all rows from the right table, even if there is no matching row in the left table.
 4. FULL JOIN: It will return rows when there is a match in either of tables.
 
-#### What is DDL, DML and DCL?
+## Q. What is DDL, DML and DCL?
 
 SQL commands can be divided in three large subgroups.
 
@@ -449,16 +449,16 @@ For example: SELECT, INSERT, etc.
 3) DCL: The SQL commands which deal with rights and permission over the database are classified as DCL.
 For example: GRANT, REVOKE
 
-#### What is Index tuning?
+## Q. What is Index tuning?
 
 - Query performance as well as speed improvement of a database can be done using Indexes.
 - The process of enhancing the selection of indexes is called Index Tuning.
 
-#### What is Index tuning?
+## Q. What is Index tuning?
 
 Index tuning is part of database tuning for selecting and creating indexes. The index tuning goal is to reduce the query processing time. Potential use of indexes in dynamic environments with several ad-hoc queries in advance is a difficult task. Index tuning involves the queries based on indexes and the indexes are created automatically on-the-fly. No explicit actions are needed by the database users for index tuning.
 
-#### How is index tuning used to improve query performance?
+## Q. How is index tuning used to improve query performance?
 
 The Index tuning wizard can be used to improve the performance of queries and databases. It uses the following measures to do so:
 
@@ -466,13 +466,13 @@ The Index tuning wizard can be used to improve the performance of queries and da
 - The changes in the usage of index, query distribution and their performance are analysed for checking the effect.
 - It also recommends ways of tuning the database for a small set of problem queries.
 
-#### How is index tuning used to improve query performance?
+## Q. How is index tuning used to improve query performance?
 
 - Index tuning improves query performance by using Index Tuning Wizard. SQL profiler is used for capturing a trace of the activity, for the optimizing performance. The trace can be extended for a period of time for the purpose of capturing a wide range of activity. 
 
 - Subsequently, Enterprise manager is used for starting the Index Tuning Wizard and instructs to recommended indexes which are based on the trace that is captured. An estimation of increased performance after making changes is provided apart from appropriate columns suggestion.
 
-#### Reasons of poor performance of query.
+## Q. Reasons of poor performance of query.
 
 Following are the reasons for the poor performance of a query: 
 
@@ -507,7 +507,7 @@ Following are the reasons for the poor performance of a query:
 ---------------------------------------------------
 ---------------------------------------------------
 
-#### SQL stands for
+## Q. SQL stands for
 
 a) Structured Query Language
 b) Simple Query Language
@@ -516,7 +516,7 @@ d) Secondary Query Language
 
 ANSWER: a) Structured Query Language
 
-#### SQL was designed with the purpose of managing data held in__
+## Q. SQL was designed with the purpose of managing data held in__
 
 a) Relational Database Management System
 b) Object Oriented Database Management System
@@ -525,7 +525,7 @@ d) File system
 
 ANSWER: a) Relational Database Management System
 
-#### Which is the correct syntax to retrieve all rows from the table?
+## Q. Which is the correct syntax to retrieve all rows from the table?
 
 a) select * from table_name;
 b) select from table_name;
@@ -534,7 +534,7 @@ d) select column_name , from table_name;
 
 ANSWER: a) select * from table_name;
 
-#### What is the difference between delete and truncate command of SQL?
+## Q. What is the difference between delete and truncate command of SQL?
 
 a) DROP command removes a table from the database & TRUNCATE removes all rows from a table
 b) TRUNCATE TABLE cannot activate a trigger because the operation does not log individual row deletions.& Delete activates a trigger because the operation are logged individually
@@ -543,7 +543,7 @@ d) All of the above
 
 ANSWER: d) All of the above
 
-#### Restrictions on Dropping Tablespace
+## Q. Restrictions on Dropping Tablespace
 
 a) You cannot drop the SYSTEM tablespace.
 b) You cannot drop a tablespace that contains a domain index or any objects created by a domain index.
@@ -552,7 +552,7 @@ d) All of the above
 
 ANSWER: d) All of the above
 
-#### If you want to add new data in a database which command will you use
+## Q. If you want to add new data in a database which command will you use
 
 a) Insert
 b) Add
@@ -561,7 +561,7 @@ d) Select
 
 ANSWER: a) Insert
 
-#### Suppose your assistant, named Jene has not been previously authorized to add data about new customers into the database, which of the following statement can be used to give her that permission
+## Q. Suppose your assistant, named Jene has not been previously authorized to add data about new customers into the database, which of the following statement can be used to give her that permission
 
 a) Grant Insert
 b) Grant Update
@@ -570,7 +570,7 @@ d) Revoke All
 
 ANSWER: a) Grant Insert
 
-#### SQL select statement is used to
+## Q. SQL select statement is used to
 
 a) Retrieve data from database
 b) Update data in database
@@ -579,7 +579,7 @@ d) Modify data in database
 
 ANSWER: a) Retrieve data from database
 
-#### To control access to the database which SQL statement/s used
+## Q. To control access to the database which SQL statement/s used
 
 a) Grant
 b) Revoke
@@ -588,7 +588,7 @@ d) Deny
 
 ANSWER: c) Both a & b
 
-#### Select the non-aggregate function from the following
+## Q. Select the non-aggregate function from the following
 
 a) Avg( )
 b) Min( )
@@ -597,7 +597,7 @@ d) Round( )\
 
 ANSWER: d) Round( )
 
-#### Select the non-scalar function from the following
+## Q. Select the non-scalar function from the following
 
 a) UCASE()
 b) LCASE()
@@ -606,7 +606,7 @@ d) FIRST()
 
 ANSWER: d) FIRST()
 
-#### If the primary key is not included in the query result , duplicate rows can occur in result set then how you can eliminate the duplicate rows of query result.
+## Q. If the primary key is not included in the query result , duplicate rows can occur in result set then how you can eliminate the duplicate rows of query result.
 
 a) By using Distinct statement
 b) By using Unique statement
@@ -615,7 +615,7 @@ d) By using where clause
 
 ANSWER: a) By using Distinct statement
 
-#### What is true about FLOOR(n) function?
+## Q. What is true about FLOOR(n) function?
 
 A) Returns smallest integer greater than or equal to n
 B) Returns largest integer less than or equal to n
@@ -629,7 +629,7 @@ d) B & C
 
 ANSWER: d) B & C
 
-#### Pseudo-column ________ returns a level of row in a tree-structured query.
+## Q. Pseudo-column ________ returns a level of row in a tree-structured query.
 
 a) ROWID
 b) LEVEL
@@ -638,7 +638,7 @@ d) ROWSCN
 
 ANSWER: b) LEVEL
 
-#### Pseudo-column LEVEL can be used in ____statement where ______ is used.
+## Q. Pseudo-column LEVEL can be used in ____statement where ______ is used.
 
 a) Select, group by
 b) Select , connect by
@@ -647,7 +647,7 @@ d) Select , group by
 
 ANSWER: b) Select , connect by
 
-#### ____ column displays the location of row in a database.
+## Q. ____ column displays the location of row in a database.
 
 a) ROWID
 b) ROWNUM
@@ -656,7 +656,7 @@ d) UID
 
 ANSWER: a) ROWID
 
-#### To use the result of certain query repeatedly which clause will you use?
+## Q. To use the result of certain query repeatedly which clause will you use?
 
 a) Where
 b) With
@@ -665,7 +665,7 @@ d) None of the above
 
 ANSWER: b) With
 
-#### Which command will you use to delete entire table from database?
+## Q. Which command will you use to delete entire table from database?
 
 a) Delete
 b) Drop
@@ -674,7 +674,7 @@ d) None of the above
 
 ANSWER: b) Drop
 
-#### SQL ______performs a JOIN against equality or matching column(s) values of the associated tables.
+## Q. SQL ______performs a JOIN against equality or matching column(s) values of the associated tables.
 
 a) Equi join
 b) Inner Join
@@ -683,7 +683,7 @@ d) Cross Join
 
 ANSWER: a) Equi join
 
-#### Exists clause is used for
+## Q. Exists clause is used for
 
 a) Testing whether a given set is empty or not
 b) Testing whether given set is valid
@@ -692,7 +692,7 @@ d) Testing whether a given set is exists
 
 ANSWER: a) Testing whether a given set is empty or not.
 
-#### Which of the following queries will correctly show the tables owned by the user?
+## Q. Which of the following queries will correctly show the tables owned by the user?
 
 a) SELECT table_name from system_user_tables;
 b) SELECT table_name from user_objects;
@@ -701,7 +701,7 @@ d) SELECT table_name from user_tables;
 
 ANSWER: d) SELECT table_name from user_tables;
 
-#### Data files are logically grouped together into an oracle logical structure called a
+## Q. Data files are logically grouped together into an oracle logical structure called a
 
 a) Tablespace
 b) Table
@@ -710,7 +710,7 @@ d) Indexes
 
 ANSWER: a) Tablespace
 
-#### To create a table name Customer having fields Cust-name, Cust_address from the table Employee and Customer table should not be populated with any record from Employee table which of the following query will be correct?
+## Q. To create a table name Customer having fields Cust-name, Cust_address from the table Employee and Customer table should not be populated with any record from Employee table which of the following query will be correct?
 
 a) Create table Customer (Cust-name, Cust_address) As Select emp_name, emp_address from Employee;
 b) Create table Customer (Cust-name, Cust_address) As Select emp_name, emp_address from Employee 1=1;
@@ -719,7 +719,7 @@ d) Create table Customer (Cust-name, Cust_address) As Select emp_name, emp_addre
 
 ANSWER: c) Create table Customer (Cust-name, Cust_address) As Select emp_name, emp_address from Employee where 1=2;
 
-#### Which of the following tasks cannot be performed when using Alter Table clause?
+## Q. Which of the following tasks cannot be performed when using Alter Table clause?
 
 A) Change the name of the table
 B) Change the name of the column
@@ -732,7 +732,7 @@ d) B & C
 
 ANSWER: b) A,B, & C
 
-#### The _______ command is used to change or modify data values in a table
+## Q. The _______ command is used to change or modify data values in a table
 
 a) Update
 b) Modify
@@ -741,7 +741,7 @@ d) Describe
 
 ANSWER: a) Update
 
-#### Up to how many columns can be combined to form a composite primary key for a table?
+## Q. Up to how many columns can be combined to form a composite primary key for a table?
 
 a) 16
 b) 8
@@ -750,7 +750,7 @@ d) 14
 
 ANSWER: a) 16
 
-#### Select from the following option which not true about primary key
+## Q. Select from the following option which not true about primary key
 
 a) Primary key can be Long & long Raw data type
 b) Unique index is created automatically if there is a Primary Key
@@ -768,7 +768,7 @@ d) Between
 
 ANSWER: b) IN
 
-#### Which of the following query is correctly give the user name of the currently logged in user?
+## Q. Which of the following query is correctly give the user name of the currently logged in user?
 
 a) SELECT USERENV FROM DUAL;
 b) SELECT COALESCE FROM DUAL;
@@ -777,7 +777,7 @@ d) SELECT USERENV FROM TABLE_NAME;
 
 ANSWER: c) SELECT USER FROM DUAL;
 
-#### The ___ operator is used to calculate aggregates and super aggregates for expressions within a ________.
+## Q. The ___ operator is used to calculate aggregates and super aggregates for expressions within a ________.
 
 a) ROLLUP, GROUP BY
 b) ROLLUP, ORDER BY
@@ -786,7 +786,7 @@ d) ROLLUP,CUBE
 
 ANSWER: a) ROLLUP, GROUP BY
 
-#### ________ allows grantee to in turn grant object privileges to other users.
+## Q. ________ allows grantee to in turn grant object privileges to other users.
 
 a) With grant option
 b) Grant
@@ -795,7 +795,7 @@ d) Grant All
 
 ANSWER: a) With grant option
 
-#### Grant all on Customer to Reeta with grant option, what is the significance of ‘with grant option’ in this query?
+## Q. Grant all on Customer to Reeta with grant option, what is the significance of ‘with grant option’ in this query?
 
 a) Give the user “Reeta” privileges to view only data on table Customer along with an option to further grant permissions on the Customer table to other users.
 b) Give the user “Reeta” all data manipulation privileges on table Customer.
@@ -804,7 +804,7 @@ d) Give the user “Reeta” all data manipulation privileges on table Customer 
 
 ANSWER: c) Give the user “Reeta” all data manipulation privileges on table Customer along with an option to further grant permissions on the Customer table to other users.
 
-#### A View is mapped to __________ statement.
+## Q. A View is mapped to __________ statement.
 
 a) Update
 b) Alter
@@ -813,7 +813,7 @@ d) Select
 
 ANSWER: d) Select
 
-#### What are the prerequisite for a View to be updateable?
+## Q. What are the prerequisite for a View to be updateable?
 
 a) Views defined from a single table. If user wants to Insert records with the help of a view, then the primary key column and all the Not Null columns must be included in the view
 b) The user can Update, Delete records with the help of a view even if the primary key column and Not Null column(s) are executed from the view definition
@@ -822,7 +822,7 @@ d) None of the above
 
 ANSWER: c) Both a & b
 
-#### Which of the following query will correctly create the view of Employee table having fields fname,lname,dept?
+## Q. Which of the following query will correctly create the view of Employee table having fields fname,lname,dept?
 
 a) Create View emp_v In select fname,lname,dept from Employee;
 b) Create View emp_v As select fname,lname,dept from Employee;
@@ -831,7 +831,7 @@ d) Create View emp_v As select , , fname,lname,dept , ,from Employee;
 
 ANSWER: b) Create View emp_v As select fname,lname,dept from Employee;
 
-#### Which of the following column is not a part of USER_CONSTRAINTS?
+## Q. Which of the following column is not a part of USER_CONSTRAINTS?
 
 a) OWNER
 b) TABLE_NAME
@@ -849,7 +849,7 @@ d) Sequence
 
 ANSWER: a) Order by clause
 
-#### ______ clause can be used to find unique values in situations to which ____ apply.
+## Q. ______ clause can be used to find unique values in situations to which ____ apply.
 
 a) HAVING, DISTINCT does not
 b) HAVING, DISTINCT
@@ -858,7 +858,7 @@ d) HAVING, GROUP BY
 
 ANSWER: a) HAVING, DISTINCT does not.
 
-#### Which of the following is not a valid SQL data type?
+## Q. Which of the following is not a valid SQL data type?
 
 a) NUMBER
 b) DATE
@@ -867,7 +867,7 @@ d) FRACTION
 
 ANSWER: d) FRACTION
 
-#### ______ condition can’t contain sub queries or sequence.
+## Q. ______ condition can’t contain sub queries or sequence.
 
 a) Check
 b) Unique
@@ -876,7 +876,7 @@ d) Index
 
 ANSWER: a) Check
 
-#### What is true about join?
+## Q. What is true about join?
 
 a) You can join a maximum of two tables
 b) You can join a maximum of two columns through
@@ -885,7 +885,7 @@ d) None of the above
 
 ANSWER: You can join two or more tables.
 
-#### Joining a table to itself is referred to as __________.
+## Q. Joining a table to itself is referred to as __________.
 
 a) Self-join
 b) Cross-join
@@ -894,7 +894,7 @@ d) Full Outer Join
 
 ANSWER: a) Self-join
 
-#### A sub query is a form of an SQL statement that appears ______ another SQL statement.
+## Q. A sub query is a form of an SQL statement that appears ______ another SQL statement.
 
 a) At the start of
 b) Inside
@@ -903,7 +903,7 @@ d) After
 
 ANSWER: b) Inside
 
-#### The____ data types are used to store binary data.
+## Q. The____ data types are used to store binary data.
 
 a) Raw
 b) LONG
@@ -912,7 +912,7 @@ d) rowid
 
 ANSWER: a) Raw
 
-#### A____ level constraint must be applied if data constraint spans across multiple columns in a table.
+## Q. A____ level constraint must be applied if data constraint spans across multiple columns in a table.
 
 a) Table
 b) Row
@@ -921,7 +921,7 @@ d) Database
 
 ANSWER: a) Table
 
-#### ______ constraint can only applied at column level.
+## Q. ______ constraint can only applied at column level.
 
 a) NOT NULL
 b) CHECK
@@ -930,7 +930,7 @@ d) PRIAMRY KEY
 
 ANSWER: a) NOT NULL
 
-#### EXTRACT() function returns ___________.
+## Q. EXTRACT() function returns ___________.
 
 a) a value extracted from a date or an interval value
 b) number of columns in a table
@@ -939,7 +939,7 @@ d) number of rows in a table
 
 ANSWER: a) a value extracted from a date or an interval value
 
-#### Which of the following is a string function?
+## Q. Which of the following is a string function?
 
 a) UPPER( )
 b) FLOOR( )
@@ -948,7 +948,7 @@ d) ABS( )
 
 ANSWER: a) UPPER( )
 
-#### VSIZE( ) function returns ___________.
+## Q. VSIZE( ) function returns ___________.
 
 a) number of bytes in the internal representation of an expression
 b) number of rows where expr is not null
