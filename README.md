@@ -20,6 +20,14 @@ An index is used to speed up the performance of queries by reducing the number o
 | 02. |CREATE UNIQUE INDEX index_name ON t(c3, c4) |Create a unique index on columns c3 and c4 of the table t |
 | 03. |DROP INDEX index_name |Drop an index |
 
+**Example:**
+
+```sql
+SHOW INDEX FROM table_name;
+ALTER TABLE `table_name` ADD INDEX(`column_name`);
+DROP INDEX index_name ON tbl_name;
+```
+
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
@@ -89,7 +97,7 @@ Following are different types of Joins:
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## How to query data from multiple tables?
+## Q. How to query data from multiple tables?
 
 |Sl.No|Query            | Description                                       |
 |-----|-----------------|---------------------------------------------------|
@@ -605,29 +613,9 @@ It is primarily of interest to developers. The storage engine is a “stub” th
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Basic Keywords
+## Q. What are the reporting aggregate functions available in SQL?
 
-|Sl.No |Keyword   | Description                                       |
-|------|----------|---------------------------------------------------|
-|  01. |SELECT	  |Used to state which columns to query. Use * for all|
-|  02. |FROM 	  |Declares which table/view etc to select from|
-|  03. |WHERE	  |Introduces a condition|
-|  04. |=	  |Used for comparing a value to a specified input|
-|  05. |LIKE	  |Special operator used with the WHERE clause to search for a specific pattern in a column|
-|  06. |GROUP BY  |Arranges identical data into groups|
-|  07. |HAVING	  |Specifies that only rows where aggregate values meet the specified conditions should be returned. Used because the WHERE keyword cannot be used with aggregate functions|
-|  08. |INNER JOIN|Returns all rows where key record of one table is equal to key records of another|
-|  09. |LEFT JOIN |Returns all rows from the ‘left’ (1st) table with the matching rows in the right (2nd)|
-|  10. |RIGHT JOIN|Returns all rows from the ‘right’ (2nd) table with the matching rows in the left (1st)|
-|  11. |FULL OUTER JOIN|Returns rows that match either in the left or right table|
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Reporting Aggregate functions
-
-In database management, an aggregate function is a function where the values of multiples rows are grouped to form a single value. 
+In database management, an aggregate function is a function where the values of multiples rows are grouped to form a single value.
 
 |Sl.No |Function   | Description                                       |
 |------|-----------|---------------------------------------------------|
@@ -641,24 +629,7 @@ In database management, an aggregate function is a function where the values of 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Querying data from a table
-
-|Sl.No |Query            | Description                                       |
-|------|-----------------|---------------------------------------------------|
-| 01.  |SELECT c1 FROM t |Select data in column c1 from a table named t      |
-| 02.  |SELECT * FROM t	 |Select all rows and columns from a table named t   |
-| 03.  |SELECT c1 FROM t WHERE c1 = ‘test’|Select data in column c1 from a table named t where the value in c1 = ‘test’
-| 05.  |SELECT c1 FROM t ORDER BY c1 ASC (DESC)|Select data in column c1 from a table name t and order by c1, either in ascending (default) or descending order |
-| 07.  |SELECT c1 FROM t ORDER BY c1LIMIT n OFFSET offset|Select data in column c1 from a table named t and skip offset of rows and return the next n rows|
-| 08.  |SELECT c1, aggregate(c2) FROM t GROUP BY c1|Select data in column c1 from a table named t and group rows using an aggregate function |
-| 09.  |SELECT c1, aggregate(c2) FROM t GROUP BY c1 HAVING condition|Select data in column c1 from a table named t and group rows using an aggregate function and filter these groups using ‘HAVING’ clause|
-
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Using SQL Operators
+## Q. Explain SQL Operators?
 
 |Sl.No|Query                                           | Description                                       |
 |-----|------------------------------------------------|---------------------------------------------------|
@@ -674,7 +645,7 @@ In database management, an aggregate function is a function where the values of 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Data modification
+## Explain data modification commands in SQL?
 
 |Sl.No|Query            | Description                                       |
 |-----|-----------------|---------------------------------------------------|
@@ -690,7 +661,7 @@ In database management, an aggregate function is a function where the values of 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Views
+## Q. What is Views in SQL?
 
 A view is a virtual table that is a result of a query. They can be extremely useful and are often used as a security mechanism, letting users access the data through the view, rather than letting them access the underlying base table:
 
@@ -702,7 +673,7 @@ A view is a virtual table that is a result of a query. They can be extremely use
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Stored Procedure
+## Q. What is stored procedure in SQL?
 
 A stored procedure is a set of SQL statements with an assigned name that can then be easily reused and share by multiple programs:
 
@@ -714,7 +685,7 @@ A stored procedure is a set of SQL statements with an assigned name that can the
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Triggers
+## Q. What are the triggers in SQL?
 
 A trigger is a special type of stored procedure that automatically executes when a user tries to modify data through a DML event (data manipulation language). A DML event is an INSERT, UPDATE or DELETE statement on a table or view:
 
@@ -781,18 +752,6 @@ SHOW FULL PROCESSLIST;
 
 --IP Address of the Mysql Host
 SHOW VARIABLES WHERE Variable_name = 'hostname';  
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-**03. Indexing:**
-
-```sql
-SHOW INDEX FROM table_name;
-ALTER TABLE `table_name` ADD INDEX(`column_name`);
-DROP INDEX index_name ON tbl_name;
 ```
 
 <div align="right">
@@ -906,42 +865,26 @@ SELECT CASE WHEN a THEN 'true' ELSE 'false' END AS boolA, CASE WHEN b THEN 'true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Stored Routine
+## Q. What is Stored Routine in SQL?
 
-```sql
-/***
 A stored routine is a set of SQL statements that are stored on the database server and can be used by any client 
 with permission to use them. This provides a number of benefits. 
 
 1. Database operations are normalized so various applications will operate uniformly, even when written in different 
-   languages and operating on different platforms. 
-   
+   languages and operating on different platforms.
 2. Stored routines are easy to maintain, because they're all in one place rather than distributed among different applications.
-
 3. Traffic is reduced between the client and server, because data is processed on the server.
+4. security is enhanced by allowing clients to run with reduced permissions while still being able to perform necessary
+database operations.
 
-4. security is enhanced by allowing clients to run with reduced permissions while still being able to perform necessary 
-   database operations. 
-   
-There are also some disadvantages. 
-
-1. Migration to a different server platform can be difficult as stored routines tend to use a lot of platform specific 
-   features and codes. 
-   
-2. stored procedures can be difficult to debug and maintain. 
-
-There are two different kinds of stored routines. 
+There are two different kinds of stored routines.
 
 a) Stored functions return a value, and are used in the context of an expression.
-
 b) Stored procedures are called separately, using the call statement, and may return result sets or set variables. 
 
-***/
+**Example 01:** Stored Functions
 
-
-
----Example - 01 : Stored Functions
-
+```sql
 DROP FUNCTION IF EXISTS track_len;
 
 CREATE FUNCTION track_len(seconds INT)
@@ -960,11 +903,11 @@ SELECT a.artist AS artist,
     ON a.id = t.album_id
   ORDER BY artist, album, trackno
 ;
+```
 
+**Example 02:** Stored Procedures
 
-
----Example - 02 : Stored Procedures
-
+```sql
 DROP PROCEDURE IF EXISTS list_albums;
 
 DELIMITER //
@@ -976,10 +919,11 @@ END
 
 DELIMITER ;
 CALL list_albums();
+```
 
+**Example 03:** Stored Procedures with parameter
 
----Example - 03 : Stored Procedures with parameter
-
+```sql
 DROP PROCEDURE IF EXISTS list_albums;
 
 DELIMITER //
@@ -1000,10 +944,11 @@ CREATE PROCEDURE list_albums (a VARCHAR(255))
 
 DELIMITER ;
 CALL list_albums('%hendrix%');
+```
 
+**Example 04:** Drop Stored Procedures & Stored Functions
 
----Example - 03 : Drop Stored Procedures & Stored Functions
-
+```sql
 DROP FUNCTION IF EXISTS track_len;
 DROP PROCEDURE IF EXISTS total_duration;
 ```
@@ -1012,7 +957,7 @@ DROP PROCEDURE IF EXISTS total_duration;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Transactions
+## Q. What is transactions in SQL?
 
 ```sql
 -- Exmaple - 01
@@ -1072,7 +1017,7 @@ COMMIT;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Trigger
+## Q. What is Trigger in SQL?
 
 ```sql
 -- Example - 01: Updating a table with a trigger
@@ -1103,7 +1048,7 @@ SELECT * FROM widgetCustomer;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## View
+## Q. What is View in SQL?
 
 ```sql
 ---Example - 01 : Creating a View
