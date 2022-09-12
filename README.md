@@ -24,14 +24,6 @@ An index is used to speed up the performance of queries by reducing the number o
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What are the different tables present in MySQL?
-
-Note that MySQL supports two different kinds of tables: transaction-safe tables (InnoDB and BDB) and non-transaction-safe tables (HEAP, ISAM, MERGE, and MyISAM). Advantages of transaction-safe tables (TST): Safer.
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
 ## Q. Explain JOIN Query in mySQL?
 
 A `JOIN` clause is used to combine rows from two or more tables, based on a related column between them.  
@@ -60,6 +52,50 @@ select o.*, u.name, u.mobile from ordes o join users u on o.user_id = u.user_id;
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is a join? Explain the different types of joins?
+
+Using Join in a query, we can retrieve referenced columns or rows from multiple tables.
+
+Following are different types of Joins:
+
+1. JOIN: Return details from tables if there is at least one matching row in both tables.
+2. LEFT JOIN: It will return all rows from the left table, even if there are no matching row in the right table.
+3. RIGHT JOIN: It will return all rows from the right table, even if there is no matching row in the left table.
+4. FULL JOIN: It will return rows when there is a match in either of tables.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are Self Join and Cross Join?
+
+- When we want to join a table to itself then SELF JOIN is used.
+- We can give one or more aliases to eliminate the confusion.
+- A self join can be used as any type, if both the tables are same.
+- The simple example where we can use SELF JOIN is if in a company have a hierarchal reporting structure and an employee reports to another.
+- A cross join give the number of rows in the first table multiplied by the number of rows in second table.
+- The simple example where we can use CROSS JOIJ is if in an organization wants to combine every Employee with family table to see each Employee with each family member.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## How to query data from multiple tables?
+
+|Sl.No|Query            | Description                                       |
+|-----|-----------------|---------------------------------------------------|
+| 01. |SELECT c1, c2 FROM t1 INNER JOIN t2 on condition|Select columns c1 and c2 from a table named t1 and perform an inner join between t1 and t2  |
+| 02. |SELECT c1, c2 FROM t1 LEFT JOIN t2 on condition|Select columns c1 and c2 from a table named t1 and perform a left join between t1 and t2|
+| 03. |SELECT c1, c2 FROM t1 RIGHT JOIN t2 on condition|Select columns c1 and c2 from a table named t1 and perform a right join between t1 and t2|
+| 04. |SELECT c1, c2 FROM t1 FULL OUTER JOIN t2 on condition|Select columns c1 and c2 from a table named t1 and perform a full outer join between t1 and t2|
+| 05. |SELECT c1, c2 FROM t1 CROSS JOIN t2 |Select columns c1 and c2 from a table named t1 and produce a Cartesian product of rows in tables|
+| 06. |SELECT c1, c2 FROM t1, t2 |Select columns c1 and c2 from a table named t1 and produce a Cartesian product of rows in tables|
+| 07. |SELECT c1, c2 FROM t1 A INNER JOIN t2 B on condition |Select columns c1 and c2 from a table named t1 and joint it to itself using an INNER JOIN clause|
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. How do you find third highest salary
@@ -321,19 +357,6 @@ where stringToChange is the string which will have the characters those we want 
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What are Self Join and Cross Join?
-
-- When we want to join a table to itself then SELF JOIN is used.
-- We can give one or more aliases to eliminate the confusion.
-- A self join can be used as any type, if both the tables are same.
-- The simple example where we can use SELF JOIN is if in a company have a hierarchal reporting structure and an employee reports to another.
-- A cross join give the number of rows in the first table multiplied by the number of rows in second table.
-- The simple example where we can use CROSS JOIJ is if in an organization wants to combine every Employee with family table to see each Employee with each family member.
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
 ## Q. What are the advantages of using Stored Procedures?
 
 - Procedure can reduce network traffic and latency, and can enhance application performance.
@@ -475,21 +498,6 @@ select EmpFirstName, Salary, DeptId from Employee where (DeptId, Salary) in (sel
 - MINUS - It will give distinct rows returned by the first query but not by the second query.
 - UNION - It will give all distinct rows selected by either first query or second query.
 - UNION ALL - It will give all rows returned by either query with all duplicate records.
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q. What is a join? Explain the different types of joins?
-
-Using Join in a query, we can retrieve referenced columns or rows from multiple tables.
-
-Following are different types of Joins:
-
-1. JOIN: Return details from tables if there is at least one matching row in both tables.
-2. LEFT JOIN: It will return all rows from the left table, even if there are no matching row in the right table.
-3. RIGHT JOIN: It will return all rows from the right table, even if there is no matching row in the left table.
-4. FULL JOIN: It will return rows when there is a match in either of tables.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -638,22 +646,6 @@ In database management, an aggregate function is a function where the values of 
 | 08.  |SELECT c1, aggregate(c2) FROM t GROUP BY c1|Select data in column c1 from a table named t and group rows using an aggregate function |
 | 09.  |SELECT c1, aggregate(c2) FROM t GROUP BY c1 HAVING condition|Select data in column c1 from a table named t and group rows using an aggregate function and filter these groups using ‘HAVING’ clause|
 
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Querying data from multiple tables
-
-|Sl.No|Query            | Description                                       |
-|-----|-----------------|---------------------------------------------------|
-| 01. |SELECT c1, c2 FROM t1 INNER JOIN t2 on condition|Select columns c1 and c2 from a table named t1 and perform an inner join between t1 and t2  |
-| 02. |SELECT c1, c2 FROM t1 LEFT JOIN t2 on condition|Select columns c1 and c2 from a table named t1 and perform a left join between t1 and t2|
-| 03. |SELECT c1, c2 FROM t1 RIGHT JOIN t2 on condition|Select columns c1 and c2 from a table named t1 and perform a right join between t1 and t2|
-| 04. |SELECT c1, c2 FROM t1 FULL OUTER JOIN t2 on condition|Select columns c1 and c2 from a table named t1 and perform a full outer join between t1 and t2|
-| 05. |SELECT c1, c2 FROM t1 CROSS JOIN t2 |Select columns c1 and c2 from a table named t1 and produce a Cartesian product of rows in tables|
-| 06. |SELECT c1, c2 FROM t1, t2 |Select columns c1 and c2 from a table named t1 and produce a Cartesian product of rows in tables|
-| 07. |SELECT c1, c2 FROM t1 A INNER JOIN t2 B on condition |Select columns c1 and c2 from a table named t1 and joint it to itself using an INNER JOIN clause|
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
