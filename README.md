@@ -12,6 +12,14 @@
 
 An index is a database structure that you can use to improve the performance of database activity. A database table can have one or more indexes associated with it. An index is defined by a field expression that you specify when you create the index. Typically, the field expression is a single field name, like EMP_ID.
 
+An index is used to speed up the performance of queries by reducing the number of database pages that have to be visited:
+
+|Sl.No|Query                               | Description                                       |
+|-----|------------------------------------|---------------------------------------------------|
+| 01. |CREATE INDEX index_name ON t(c1, c2) |Create an index on columns c1 and c2 of the table t |
+| 02. |CREATE UNIQUE INDEX index_name ON t(c3, c4) |Create a unique index on columns c3 and c4 of the table t |
+| 03. |DROP INDEX index_name |Drop an index |
+
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
@@ -690,20 +698,6 @@ A view is a virtual table that is a result of a query. They can be extremely use
 |Sl.No|Query                                                     | Description                                       |
 |-----|----------------------------------------------------------|---------------------------------------------------|
 | 01. |CREATE VIEW view1 AS SELECT c1, c2 FROM t1 WHERE condition|Create a view, comprising of columns c1 and c2 from a table named t1 where a certain condition has been met.|
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Indexes
-
-An index is used to speed up the performance of queries by reducing the number of database pages that have to be visited:
-
-|Sl.No|Query                               | Description                                       |
-|-----|------------------------------------|---------------------------------------------------|
-| 01. |CREATE INDEX index_name ON t(c1, c2) |Create an index on columns c1 and c2 of the table t |
-| 02. |CREATE UNIQUE INDEX index_name ON t(c3, c4) |Create a unique index on columns c3 and c4 of the table t |
-| 03. |DROP INDEX index_name |Drop an index |
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
