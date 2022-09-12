@@ -401,36 +401,31 @@ SELECT RANK() OVER(ORDER BY BirthDate DESC) AS [RowNumber], FirstName, BirthDate
 
 ## Q. What are cursors and when they are useful?
 
-- When we execute any SQL operations, SQL Server opens a work area in memory which is called Cursor.
-- When it is required to perform the row by row operations which are not possible with the set-based operations then cursor is used.
+When we execute any SQL operations, SQL Server opens a work area in memory which is called Cursor. When it is required to perform the row by row operations which are not possible with the set-based operations then cursor is used.
 
 There are two of cursors:
 
-1. Implicate Cursor
-- SQL Server automatically manages cursors for all data manipulation statements. These cursors are called implicit cursors.
+**1. Implicate Cursor:**
 
-2. Explicit Cursor
-- When the programmer wants to perform the row by row operations for the result set containing more than one row, then he explicitly declare a cursor with a name.
-- They are managed by OPEN, FETCH and CLOSE.
-- %FOUND, %NOFOUND, %ROWCOUNT and %ISOPEN attributes are used in both types of cursors.
+* SQL Server automatically manages cursors for all data manipulation statements. These cursors are called implicit cursors.
+
+**2. Explicit Cursor:**
+
+* When the programmer wants to perform the row by row operations for the result set containing more than one row, then he explicitly declare a cursor with a name.
+* They are managed by OPEN, FETCH and CLOSE.
+* %FOUND, %NOFOUND, %ROWCOUNT and %ISOPEN attributes are used in both types of cursors.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What is Similarity and Difference between Truncate and Delete in SQL?
+## Q. What is difference between Truncate and Delete in SQL?
 
-- Similarity
-
-- Both Truncate and Delete command will delete data from given table and they will not delete the table structure from the database.
-
-- Difference
-
-1. TRUNCATE is a DDL (data definition language) command whereas DELETE is a DML (data manipulation language) command.
-2. We can'\t execute a trigger with TRUNCATE whereas with DELETE command, a trigger can be executed.
-3. We can use any condition in WHERE clause using DELETE but it is not possible with TRUNCATE.
-4. If table is referenced by any foreign key constraints then TRUNCATE cannot work.
-5. TRUNCATE is faster than DELETE, because when you use DELETE to delete the data, at that time it store the whole data in rollback space from where you can get the data back after deletion, whereas TRUNCATE will not store data in rollback space and will directly delete it. You can'\t get the deleted data back when you use TRUNCATE.
+* TRUNCATE is a DDL (data definition language) command whereas DELETE is a DML (data manipulation language) command.
+* We can'\t execute a trigger with TRUNCATE whereas with DELETE command, a trigger can be executed.
+* We can use any condition in WHERE clause using DELETE but it is not possible with TRUNCATE.
+* If table is referenced by any foreign key constraints then TRUNCATE cannot work.
+* TRUNCATE is faster than DELETE, because when you use DELETE to delete the data, at that time it store the whole data in rollback space from where you can get the data back after deletion, whereas TRUNCATE will not store data in rollback space and will directly delete it. You can'\t get the deleted data back when you use TRUNCATE.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -438,10 +433,10 @@ There are two of cursors:
 
 ## Q. What are COMMIT and ROLLBACK in SQL?
 
-- COMMIT statement is used to end the current transaction and once the COMMIT statement is exceucted the transaction will be permanent and undone.
-- Syntax: COMMIT;
+COMMIT statement is used to end the current transaction and once the COMMIT statement is exceucted the transaction will be permanent and undone.
 
-- Example:
+
+**Example:**:
 
 ```sql
 BEGIN
@@ -453,7 +448,7 @@ END;
 -ROLLBACK statement is used to end the current transaction and undone the changes which was made by that transaction.
 - Syntax: ROLLBACK [TO] Savepoint_name;
 
-- Example:
+**Example:**:
 
 ```sql
 BEGIN
@@ -479,7 +474,7 @@ END;
 - When the transaction is committed or rolled back then there is no need to use NOLOCK function because the data is already released by the committed transaction.
 - Syntax: WITH(NOLOCK)
 
-- Example:
+**Example:**:
 
 ```sql
 SELECT * FROM EmpDetails WITH(NOLOCK)
@@ -1019,10 +1014,9 @@ COMMIT;
 
 ## Q. What is Trigger in SQL?
 
+**Example - 01:** Updating a table with a trigger
+
 ```sql
--- Example - 01: Updating a table with a trigger
-
-
 CREATE TABLE widgetCustomer ( id SERIAL, name VARCHAR(255), last_order_id BIGINT );
 CREATE TABLE widgetSale ( id SERIAL, item_id BIGINT, customer_id BIGINT, quan INT, price DECIMAL(9,2) );
 
