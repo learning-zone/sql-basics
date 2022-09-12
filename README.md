@@ -28,26 +28,33 @@ An index is used to speed up the performance of queries by reducing the number o
 
 A `JOIN` clause is used to combine rows from two or more tables, based on a related column between them.  
 Take `users` table and `orders` table for example.  
-Users  
+
+**Users Table:**  
 
 |user_id|name|mobile|
 |---|---|---|
 |1|John|123|
 |2|Joe|124|
 
-Orders  
+**Orders Table:**  
 
 |order_id|user_id|total|created_at|
 |---|---|---|---|
-|1|1|500|2021-12-19 18:32:00|
+|1|1|500|2022-12-19 18:32:00|
 |2|1|800|2021-12-03 08:32:00|
-|3|2|50|2021-12-13 12:49:00|
+|3|2|50|2020-12-13 12:49:00|
 |4|1|80|2021-12-15 21:19:00|
 
 So to get the list of orders with names and mobile nos. for each order, we can join `orders` and `users` on the basis of `user_id`.  
 
 ```sql
-select o.*, u.name, u.mobile from ordes o join users u on o.user_id = u.user_id;
+SELECT 
+   o.*, 
+   u.name, 
+   u.mobile 
+FROM
+ ordes o 
+ JOIN users u ON o.user_id = u.user_id;
 ```
 
 <div align="right">
@@ -101,7 +108,7 @@ Following are different types of Joins:
 ## Q. How do you find third highest salary
 
 ```sql
-select * from employees order by salary limit 2,1;
+SELECT * from employees order by salary limit 2,1;
 ```
 
 <div align="right">
