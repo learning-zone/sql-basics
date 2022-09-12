@@ -504,36 +504,6 @@ For example: GRANT, REVOKE
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What is Index tuning?
-
-Index tuning is part of database tuning for selecting and creating indexes. The index tuning goal is to reduce the query processing time. Potential use of indexes in dynamic environments with several ad-hoc queries in advance is a difficult task. Index tuning involves the queries based on indexes and the indexes are created automatically on-the-fly. No explicit actions are needed by the database users for index tuning.
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q. How is index tuning used to improve query performance?
-
-The Index tuning wizard can be used to improve the performance of queries and databases. It uses the following measures to do so:
-
-- It uses the query optimizer to perform the analysis of queries with respect to the workload and based on this knowledge, it recommends the best usage of indexes.
-- The changes in the usage of index, query distribution and their performance are analysed for checking the effect.
-- It also recommends ways of tuning the database for a small set of problem queries.
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q. How is index tuning used to improve query performance?
-
-- Index tuning improves query performance by using Index Tuning Wizard. SQL profiler is used for capturing a trace of the activity, for the optimizing performance. The trace can be extended for a period of time for the purpose of capturing a wide range of activity. 
-
-- Subsequently, Enterprise manager is used for starting the Index Tuning Wizard and instructs to recommended indexes which are based on the trace that is captured. An estimation of increased performance after making changes is provided apart from appropriate columns suggestion.
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
 ## Q. What are the reasons of poor performance of query?
 
 Following are the reasons for the poor performance of a query:
