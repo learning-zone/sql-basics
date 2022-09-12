@@ -54,7 +54,7 @@ select o.*, u.name, u.mobile from ordes o join users u on o.user_id = u.user_id;
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What is a join? Explain the different types of joins?
+## Q. Explain the different types of joins?
 
 Using Join in a query, we can retrieve referenced columns or rows from multiple tables.
 
@@ -108,7 +108,7 @@ select * from employees order by salary limit 2,1;
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. Difference between CHAR and VARCHAR in MySQL?
+## Q. What is difference between CHAR and VARCHAR in MySQL?
 
 Both of them are used for string type data. `char` has fixed length and if the inserted data is less than the defined length, required no. of blank spaces are added as padding. `varchar` has variable length and no padding is used to fill up the left out space. So technically, varchar will save space.
 
