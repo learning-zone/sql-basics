@@ -1,5 +1,28 @@
 # SQL Query Practice
 
+## Q. Write a SQL query to find the 3th highest salary from employee table.
+
+```js
+Input: 100, 90, 90, 80, 80, 75
+Output: 80
+```
+
+```sql
+-- Return 3rd highest salary with distincation. Limiting to 1 result.
+SELECT *
+FROM `employee`
+WHERE
+	`Salary` = (SELECT DISTINCT `Salary`
+     	FROM `employee`
+     	ORDER BY `salary` DESC
+     LIMIT 1 OFFSET 2
+     )
+LIMIT 1
+;
+```
+
+**&#9885; [Try this example on DB Fiddle](https://www.db-fiddle.com/f/kypbSttwBuXHzC7AFEfmMJ/1)**
+
 ```sql
 -- 1> Write a SQL query to find the nth highest salary from employee table. 
 -- Example: finding 3rd highest salary from employee table
