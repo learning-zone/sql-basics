@@ -24,12 +24,6 @@ LIMIT 1
 **&#9885; [Try this example on DB Fiddle](https://www.db-fiddle.com/f/kypbSttwBuXHzC7AFEfmMJ/1)**
 
 ```sql
--- 1> Write a SQL query to find the nth highest salary from employee table. 
--- Example: finding 3rd highest salary from employee table
-select * from employee order by salary desc;
---- Limit N-1,1
-select distinct salary from employee order by salary desc limit 2, 1;
-
 -- 2> Write a SQL query to find top n records?
 -- Example: finding top 5 records from employee table
 select * from employee order by salary desc limit 5;
