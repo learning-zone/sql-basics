@@ -394,3 +394,63 @@ order by login_time desc limit 1;
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
+
+## Q. Count the Employees
+
+The data for the numner employed at several famous IT companies is maintained in the COMPANY table. Write a query to print the IDs of the companies that have more than 10000 employees, in ascending order of ID.
+
+**Input Format:**
+
+| Name    | Type    | Description |
+|---------|---------|-------------|
+|  ID     | Integer | A company ID in the inclusive range, [1, 1000]. This is the primay key.|
+|  NAME   | String  | A company name. This field contans between 1 and 100 characters (inclusive).|
+|EMPLOYEES| Integer | The total number of employees in the company. |
+
+**Output Format:**
+
+The result should contain the IDs of all the companies that have more than 10000 employees, in scending order in the follwing format:
+
+```sql
+COMPANY.ID
+```
+
+**Sample Input:**
+
+| ID | NAME       |EMPLOYEES|
+|----|------------|-------|
+| 1  | Adobe      | 28085 |
+| 2  | Flipkart   | 35543 |
+| 3  | Amazon     | 1089  |
+| 4  | Paytm      | 9982  |
+| 5  | BookMyShow | 5589  |
+| 6  | Oracle     | 4003  |
+| 7  | NIIT       | 57782 |
+| 8  | Samsung    | 2000  |
+| 9  | TCS        | 10046 |
+| 10 | Wipro      | 3500  |
+
+**Sample Output:**
+
+```js
+1
+2
+7
+9
+```
+
+**Explanation:**
+
+Adobe, Filpkart, NIIT and TCS have greater then 10000 employees, so their IDs are printed.
+
+<details><summary><b>Answer</b></summary>
+
+```sql
+
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
