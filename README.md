@@ -1,6 +1,6 @@
 # SQL Basics
 
-*Click <img src="https://github.com/learning-zone/mysql-interview-questions/blob/master/assets/star.png" width="20" height="20" align="absmiddle" title="Star" /> if you like the project. Pull Request are highly appreciated.*
+> *Click &#9733; if you like the project. Your contributions are heartily ♡ welcome.*
 
 <br/>
 
