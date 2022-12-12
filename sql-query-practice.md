@@ -1,11 +1,57 @@
 # SQL Query Practice
 
-## Q. Write a SQL query to find the 3th highest salary from employee table.
+## Q. Write a SQL Query to remove duplicates from Table?
+
+```sql
+Input:
+
+CREATE TABLE Employee
+    ( 
+      [ID] INT identity(1, 1), 
+      [FirstName] Varchar(100), 
+      [LastName] Varchar(100), 
+      [Country] Varchar(100), 
+    ) 
+    GO 
+    
+    Insert into Employee ([FirstName], [LastName], [Country] ) values
+    ('Raj','Gupta','India'),
+    ('Raj','Gupta','India'),
+    ('Mohan','Kumar','USA'),
+    ('James','Barry','UK'),
+    ('James','Barry','UK'),
+    ('James','Barry','UK')
+```
+
+<details><summary><b>Answer</b></summary>
+
+```sql
+-- SQL delete duplicate Rows using Group By and having clause
+SELECT [FirstName], 
+    [LastName], 
+    [Country], 
+    COUNT(*) AS CNT
+FROM [SampleDB].[dbo].[Employee]
+GROUP BY [FirstName], 
+      [LastName], 
+      [Country]
+HAVING COUNT(*) > 1;
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. Write a SQL query to find the 3th highest salary from employee table?
 
 ```js
 Input: 100, 90, 90, 80, 80, 75
 Output: 80
 ```
+
+<details><summary><b>Answer</b></summary>
 
 ```sql
 -- Return 3rd highest salary with distincation. Limiting to 1 result.
@@ -22,6 +68,12 @@ LIMIT 1
 ```
 
 **&#9885; [Try this example on DB Fiddle](https://www.db-fiddle.com/f/kypbSttwBuXHzC7AFEfmMJ/1)**
+
+</details>
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 ```sql
 -- 2> Write a SQL query to find top n records?
