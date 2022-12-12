@@ -75,6 +75,8 @@ LIMIT 1
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. SQL queries
+
 ```sql
 -- 2> Write a SQL query to find top n records?
 -- Example: finding top 5 records from employee table
