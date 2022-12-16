@@ -1117,6 +1117,7 @@ DROP VIEW IF EXISTS joinedAlbum;
 #### Q. What is difference between procedures and triggers
 #### Q. What is the default index created on primary key in sql server?
 #### Q. How to test performance of database?
+#### Q. What are the differences between Stored Procedure and Function in SQL?
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
