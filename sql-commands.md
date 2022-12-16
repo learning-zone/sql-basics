@@ -319,3 +319,148 @@ WHERE column_name operator value;
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
+
+## Basic Queries
+
+**01. Import ".sql" file from command prompt:**
+
+```sql
+SOURCE C://database.sql;
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+**02. MySQL Performance Queries:**
+
+```sql
+OPTIMIZE TABLE table_name;
+
+--Displays description of the table
+SHOW TABLE STATUS;  
+DESC table_name;
+SHOW VARIABLES;
+SHOW STATUS;
+SHOW GLOBAL STATUS;
+SHOW TABLES FROM INFORMATION_SCHEMA;
+EXPLAIN SELECT * FROM table_name
+SHOW TABLE STATUS FROM database_name;
+
+--Shows you which threads are running
+SHOW FULL PROCESSLIST;  
+
+--IP Address of the Mysql Host
+SHOW VARIABLES WHERE Variable_name = 'hostname';  
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+**04. Table Related Queries:**
+
+```sql
+SELECT max(RIGHT(`field_name`,4)) FROM `table_name`;
+
+-- Converts to upper case
+SELECT UCASE(column_name) FROM table_name;  
+
+--Select nearest value
+SELECT * FROM TABLE ORDER BY ABS(VALUE - $MYVALUE) LIMIT 1 
+SELECT sentence, wordcount(sentence) as "Words" from test;
+
+--Useful in pagination
+SELECT * FROM table_name ORDER BY field_name LIMIT 5 OFFSET 5;  
+
+--Find duplicate entries
+SELECT *,  COUNT(field_name)  FROM table_name GROUP BY field_name HAVING ( COUNT(field_name) > 1 ) 
+
+ALTER TABLE table_name AUTO_INCREMENT =1
+ALTER TABLE `table_name` DROP PRIMARY KEY 
+ALTER TABLE `table_name` ENGINE = InnoDB
+ALTER TABLE table_name CHANGE `id` `id` INT( 11 ) NOT NULL AUTO_INCREMENT 
+ALTER TABLE `table_name` ADD `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST ;
+ALTER TABLE table_name ADD column_name datatype AFTER column_name 
+ALTER TABLE table_name DROP COLUMN column_name  
+ALTER TABLE table_name MODIFY column_name datatype
+ALTER TABLE table_name CHANGE oldname newname datatype
+
+RENAME TABLE `table_name_old` TO `table_name_new`
+
+--Update particular character
+UPDATE mytable SET city = REPLACE(city, 'ï', 'i')   
+
+--Swaping field value
+UPDATE swap_test SET x=y, y=@temp where @temp:=x;   
+
+--COPYING
+UPDATE table_name SET field_name1=field_name2;      
+UPDATE table_name SET field_name = UPPER(field_name)
+
+TRUNCATE TABLE table_name;
+DROP TABLE table_name;
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+**05. Date and time:**
+
+```sql
+SHOW VARIABLE LIKE '%time_zone%';
+
+--Current timestamp
+SELECT NOW(); 
+
+--Current day
+SELECT DAYNAME(NOW()); 
+
+--Subtract time
+SELECT SUBTIME('1:30:00', '00:15:00'); 
+
+--Date Format 
+SELECT DATE_FORMAT(NOW(), '%W, %D of %M, %Y'); 
+SELECT TIMEDIFF('2007-10-05 12:10:18','2007-10-05 16:14:59') AS length;
+SELECT * FROM `table_name` WHERE DATE_FORMAT(field_name, "%Y-%m-%d") = '2010-01-01'"
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+**06. MySQL Miscellaneous Queries:**
+
+```sql
+--Use to generate unique id
+SELECT uuid();  
+
+--Get numeric values 
+SELECT * FROM `TABLENAME` WHERE `field` REGEXP '^-?[0-9]+$' 
+
+--w3resource.com
+SELECT CONCAT('w3resource','.','com'); 
+
+--bit datatype
+CREATE TABLE table_bit (id SERIAL, a BIT(3), b BIT(8), c BIT(16)); 
+
+--Enum datatype
+CREATE TABLE table_enum (id SERIAL, status ENUM('Active', 'Deactive'));
+
+--Get the length 
+SELECT CHAR_LENGTH(field_name) AS Length FROM `table_name`; 
+SELECT * FROM `table_name` WHERE LENGTH(field_name) < 10
+
+--Copying the previous rows to the next rows
+INSERT INTO table_name (`col1`, `col2`, `col3`, `...`, `coln`) SELECT `col1`, `col2`, `col3`, `...`, `coln` FROM table_name 
+SELECT COUNT(DISTINCT column) FROM table;
+SELECT field_name, LEFT(field_name, 3), RIGHT(field_name, 3), MID(field_name, 2, 3) FROM `table_name`;
+
+--Flow control with CASE
+SELECT CASE WHEN a THEN 'true' ELSE 'false' END AS boolA, CASE WHEN b THEN 'true' ELSE 'false' END AS boolB FROM table_name; 
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
