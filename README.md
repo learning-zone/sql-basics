@@ -25,7 +25,7 @@
 * [SQL Delete](#-10-sql-delete)
 * [SQL Keys](#-11-sql-keys)
 * [SQL Join](#-12-sql-join)
-* [SQL RegEx](#-13-sql-indexes)
+* [SQL RegEx](#-13-sql-regex)
 * [SQL Indexes](#-14-sql-indexes)
 * [SQL Wildcards](#-15-sql-wildcards)
 * [SQL Date Format](#-16-sql-date-format)
@@ -42,6 +42,20 @@
 ## # 1. Introduction
 
 <br/>
+
+## Q. What is a database?
+## Q. What is SQL?
+## Q. What is PL/SQL?
+## Q. What is RDBMS?
+## Q. What are the types of subquery?
+## Q. What is a database relationship?
+## Q. What is data Integrity?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
 
 ## Q. What are the two principles of relational database model?
 
@@ -201,6 +215,11 @@ For example: SELECT, INSERT, etc.
 3) DCL: The SQL commands which deal with rights and permission over the database are classified as DCL.
 For example: GRANT, REVOKE
 
+## Q. How to prevent from database SQL Injection?
+## Q. What are the non standard string types available in SQL?
+
+*ToDo*
+
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
@@ -213,6 +232,11 @@ For example: GRANT, REVOKE
 
 Both of them are used for string type data. `char` has fixed length and if the inserted data is less than the defined length, required no. of blank spaces are added as padding. `varchar` has variable length and no padding is used to fill up the left out space. So technically, varchar will save space.
 
+## Q. What are the string types available for column sql?
+## Q. What is the difference between blob and text data type in sql?
+
+*ToDo*
+
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
@@ -221,14 +245,32 @@ Both of them are used for string type data. `char` has fixed length and if the i
 
 <br/>
 
+## Q. How to create a database using SQL?
+
 ## # 4. SQL Table
 
 <br/>
+
+## Q. How to create a table in SQL?
+## Q. What are tables and Fields?
+## Q. How to delete a table in SQL Server?
+## Q. What is the difference between DELETE TABLE and TRUNCATE TABLE commands?
+## Q. What is the difference between TRUNCATE and DROP statements?
+## Q. How to alter a table schema in SQL Server?
+## Q. What are Heap tables in SQL?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
 
 ## # 5. SQL Select
 
 <br/>
 
+## Q. What are query types in a database?
+## Q. What is the difference between UNION and UNION ALL?
 ## Q. What is difference between Co-related sub query and nested sub query?
 
 - Correlated subquery executes single time for every row which is selected by the outer query.
@@ -270,20 +312,41 @@ select EmpFirstName, Salary, DeptId from Employee where (DeptId, Salary) in (sel
 | 07. |SELECT c1 FROM t WHERE c1 IS [NOT] NULL|Select column c1 from a table named t and check if the values are NULL or not |
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## Q. Explain correlated query work?
+## Q. What is the SQL CASE statement used for?
+
+*ToDo*
 
 ## # 6. SQL Clause
 
 <br/>
 
+## Q. What is the difference between a HAVING CLAUSE and a WHERE CLAUSE?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 7. SQL Order By
 
 <br/>
 
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 8. SQL Insert
 
 <br/>
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
 
 ## # 9. SQL Update
 
@@ -303,7 +366,8 @@ END;
 ```
 
 -ROLLBACK statement is used to end the current transaction and undone the changes which was made by that transaction.
-- Syntax: ROLLBACK [TO] Savepoint_name;
+
+**Syntax: ROLLBACK [TO] Savepoint_name;
 
 **Example:**:
 
@@ -338,7 +402,7 @@ END;
 | 07. |DELETE FROM tWHERE condition	|Delete all rows from that a table named t that match a certain condition|
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 10. SQL Delete
@@ -366,6 +430,19 @@ END;
 - Primary key uniquely identify a relationship in a database, whereas foreign key is the key that is in other relation and it has been referenced from the primary key from other table.
 - Primary key remains one only for the table, whereas there can be more than one foreign key.
 - Primary key is unique and won'\t be shared between many tables, but foreign key will be shared between more than one table and will be used to tell the relationship between them.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is a unique key?
+## Q. What is a foreign key of a database?
+## Q. What is a constraint in SQL?
+## Q. How do I define constraints in SQL?
+## Q. What is a candidate key?
+## Q. What is the default index created on primary key in sql server?
+
+*ToDo*
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -452,13 +529,28 @@ Following are different types of Joins:
 | 06. |SELECT c1, c2 FROM t1, t2 |Select columns c1 and c2 from a table named t1 and produce a Cartesian product of rows in tables|
 | 07. |SELECT c1, c2 FROM t1 A INNER JOIN t2 B on condition |Select columns c1 and c2 from a table named t1 and joint it to itself using an INNER JOIN clause|
 
+## Q. What is full join in SQL?
+## Q. What is an outer join in SQL?
+## Q. What is an inner join in SQL?
+## Q. What is left join in SQL Server?
+## Q. What is a right join in SQL Server?
+## Q. What is the default join in SQL?
+
+*ToDo*
+
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 13. SQL RegEx
 
 <br/>
+
+## Q. How to use REGEXP in SQL Query?
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
 
 ## # 14. SQL Indexes
 
@@ -512,13 +604,37 @@ DROP INDEX index_name ON tbl_name;
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q. What is the difference between Cluster and Non-Cluster Index?
+## Q. How to create index in SQL Server?
+## Q. What are the types of indexes in sql?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 15. SQL Wildcards
 
 <br/>
 
+## Q. What are the ways to use wildcards in sql?
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 16. SQL Date Format
 
 <br/>
+
+## Q. What is difference between timestamp and datetime in SQL?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
 
 ## # 17. SQL Transactions
 
@@ -581,7 +697,7 @@ COMMIT;
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q. What is the purpose of acid properties?
@@ -626,10 +742,21 @@ WITH(NOLCOK) is similar as READ UNCOMMITTED.
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q. What are different transaction levels in SQL?
+## Q. What are the different locks in SQL?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 18. SQL Functions
 
 <br/>
 
+## Q. What is a function in SQL Server?
+## Q. What are the different types of functions in SQL Server?
 ## Q. What are the reporting aggregate functions available in SQL?
 
 In database management, an aggregate function is a function where the values of multiples rows are grouped to form a single value.
@@ -642,8 +769,11 @@ In database management, an aggregate function is a function where the values of 
 |  04. |MIN	   |Returns the smallest value of the group|
 |  05. |MAX	   |Returns the largest value of the group|
 
+## Q. What are aggregate and scalar functions?
+## Q. What are all the Common SQL Function?
+
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 19. SQL View
@@ -659,7 +789,7 @@ A view is a virtual table that is a result of a query. They can be extremely use
 | 01. |CREATE VIEW view1 AS SELECT c1, c2 FROM t1 WHERE condition|Create a view, comprising of columns c1 and c2 from a table named t1 where a certain condition has been met.|
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q. What is View in SQL?
@@ -713,7 +843,7 @@ DROP VIEW IF EXISTS joinedAlbum;
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 20. SQL Triggers
@@ -765,7 +895,7 @@ DROP TRIGGER trigger_name
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q. What is Trigger in SQL?
@@ -795,7 +925,17 @@ SELECT * FROM widgetCustomer;
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. Why and when to use a trigger?
+## Q. What are the different types of triggers?
+## Q. How many TRIGGERS are possible in MySql?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 21. SQL Cursors
@@ -821,6 +961,8 @@ There are two of cursors:
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## Q. When is the Explicit Cursor Used?
 
 ## # 22. SQL Stored Procedures
 
@@ -855,7 +997,7 @@ A stored procedure is a set of SQL statements with an assigned name that can the
 | 01. |CREATE PROCEDURE procedure_name  @variable AS datatype = value AS -- Comments SELECT * FROM tGO |Create a procedure called procedure_name, create a local variable and then select from table t|
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q. What is Stored Routine in SQL?
@@ -946,15 +1088,16 @@ DROP FUNCTION IF EXISTS track_len;
 DROP PROCEDURE IF EXISTS total_duration;
 ```
 
+## Q. What is the difference between Stored Procedure and User Defined Function?
+## Q. How can you raise custom errors from stored procedure?
+
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 23. Miscellaneous
 
 <br/>
-
-
 
 ## Q. How do you find third highest salary
 
@@ -1075,25 +1218,11 @@ It is primarily of interest to developers. The storage engine is a “stub” th
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-#### Q. Give string types available for column
-#### Q. What are the nonstandard string types
-#### Q. What are all the Common SQL Function
-#### Q. How to prevent from database attacks/SQL Injection
-#### Q. How many TRIGGERS are possible in MySql
-#### Q. What are Heap tables
-#### Q. What is the difference between BLOB AND TEXT
-#### Q. Explain advantages of MyISAM over InnoDB
-#### Q. What are the differences between MySQL_fetch_array(), MySQL_fetch_object(), MySQL_fetch_row()
-#### Q. How to find the unique values if the value in the column is repeated
-#### Q. How to use REGEXP in SQL Query?
-#### Q. What are the types of indexes in sql?
-#### Q. Explain SELECT, LIKE, IN, Regular-Expression, Datatypes, Sub-Query in mySQL
-#### Q. Explain Stored Procedure, View, Event, triggers
-#### Q. Explain Transaction in SQL?
-#### Q. What is difference between procedures and triggers
-#### Q. What is the default index created on primary key in sql server?
-#### Q. How to test performance of database?
-#### Q. What are the differences between Stored Procedure and Function in SQL?
+## Q. How to find the unique values if the value in the column is repeated?
+## Q. How to test performance of database?
+## Q. What is SQL Profiler?
+## Q. How to get @@ERROR and @@ROWCOUNT at the same time?
+## Q. Explain about buffer cash and log Cache in SQL Server?
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
