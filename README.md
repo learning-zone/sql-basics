@@ -133,7 +133,40 @@ Note that the Books table doesn\'t have AuthorId in this case. That column has b
 
 ## Q. What is data Integrity?
 
-*ToDo*
+Data Integrity defines the accuracy and consistency of data stored in a database. It can also define integrity constraints to enforce business rules on the data when it is entered into the application or database.
+
+**Classification of Data Integrity:**
+
+* a) System/Pre Defined Integrity
+* b) User-Defined Integrity
+
+<p align="center">
+  <img src="assets/data-integrity.png" alt="Many to Many" width="500px" />
+</p>
+
+**a) System/Pre Defined Integrity:**
+
+<p align="center">
+  <img src="assets/system-integrity.png" alt="Many to Many" width="500px" />
+</p>
+
+**1. Entity Integrity:**
+
+Entity integrity ensures each row in a table is a uniquely identifiable entity. We can apply Entity integrity to the Table by specifying a primary key, unique key, and not null.
+
+**2. Referential Integrity:**
+
+Referential integrity ensures the relationship between the Tables.
+
+We can apply this using a Foreign Key constraint.
+
+**3. Domain Integrity:**
+
+Domain integrity ensures the data values in a database follow defined rules for values, range, and format. A database can enforce these rules using Check and Default constraints.
+
+**b) User-Defined Integrity:**
+
+It comprises the rules defined by the operator to fulfill their specific requirements. Entity, referential, and domain integrity are not enough to refine and secure data. Time in time again, particular business rules must be considered and integrated into data integrity processes to meet enterprise standards.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
