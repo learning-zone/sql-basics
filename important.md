@@ -25,7 +25,7 @@ WHERE (DeptId, Salary) IN (SELECT DeptId, max(Salary) FROM Employee group by Dep
 ```
 
 <div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
+    <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. What are indexes in a Database?
@@ -61,10 +61,22 @@ DROP INDEX index_name ON <table_name>;
 ```
 
 <div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
+    <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. What are the types of indexes in sql?
+
+**1. Clustered Index:**
+
+Clustered index is the type of indexing that establishes a physical sorting order of rows. Clustered index is like Dictionary; in the dictionary, sorting order is alphabetical and there is no separate index page.
+
+**2. Non-clustered:**
+
+Non-Clustered index is an index structure separate from the data stored in a table that reorders one or more selected columns. The non-clustered index is created to improve the performance of frequently used queries not covered by a clustered index. It\'s like a textbook; the index page is created separately at the beginning of that book.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 ## Q. What is transactions in SQL?
 
@@ -123,7 +135,7 @@ COMMIT;
 ```
 
 <div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
+    <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. What is Views in SQL?
@@ -135,7 +147,7 @@ A view is a virtual table that is a result of a query. They can be extremely use
 | 01. |CREATE VIEW view1 AS SELECT c1, c2 FROM t1 WHERE condition|Create a view, comprising of columns c1 and c2 from a table named t1 where a certain condition has been met.|
 
 <div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
+    <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. What is View in SQL?
@@ -189,7 +201,7 @@ DROP VIEW IF EXISTS joinedAlbum;
 ```
 
 <div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
+    <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. What are the triggers in SQL?
@@ -224,7 +236,7 @@ DROP TRIGGER trigger_name
 ```
 
 <div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
+    <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. What is Trigger in SQL?
@@ -254,7 +266,7 @@ SELECT * FROM widgetCustomer;
 ```
 
 <div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
+    <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. What are cursors and when they are useful?
@@ -274,7 +286,7 @@ There are two of cursors:
 * %FOUND, %NOFOUND, %ROWCOUNT and %ISOPEN attributes are used in both types of cursors.
 
 <div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
+    <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. What is stored procedure in SQL?
@@ -286,7 +298,7 @@ A stored procedure is a set of SQL statements with an assigned name that can the
 | 01. |CREATE PROCEDURE procedure_name  @variable AS datatype = value AS -- Comments SELECT * FROM tGO |Create a procedure called procedure_name, create a local variable and then select from table t|
 
 <div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
+    <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. What is the difference between Cluster and Non-Cluster Index?
