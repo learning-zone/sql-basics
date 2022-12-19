@@ -12,12 +12,16 @@ A correlated subquery is evaluated once for each row processed by the parent sta
 
 ```sql
 --- Correlated Subquery
-select e.EmpFirstName, e.Salary, e.DeptId from Employee e where e.Salary = (select max(Salary) from Employee ee where ee.DeptId = e.DeptId)
+SELECT e.EmpFirstName, e.Salary, e.DeptId 
+FROM Employee e 
+WHERE e.Salary = (SELECT max(Salary) FROM Employee ee WHERE ee.DeptId = e.DeptId)
 ```
 
 ```sql
 --- Nested Subquery
-select EmpFirstName, Salary, DeptId from Employee where (DeptId, Salary) in (select DeptId, max(Salary) from Employee group by DeptId)
+SELECT EmpFirstName, Salary, DeptId 
+FROM Employee 
+WHERE (DeptId, Salary) IN (SELECT DeptId, max(Salary) FROM Employee group by DeptId)
 ```
 
 <div align="right">
