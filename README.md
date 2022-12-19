@@ -43,13 +43,13 @@
 
 <br/>
 
-## Q. What is a database?
-## Q. What is SQL?
-## Q. What is PL/SQL?
-## Q. What is RDBMS?
-## Q. What are the types of subquery?
-## Q. What is a database relationship?
-## Q. What is data Integrity?
+#### Q. What is a database?
+#### Q. What is SQL?
+#### Q. What is PL/SQL?
+#### Q. What is RDBMS?
+#### Q. What are the types of subquery?
+#### Q. What is a database relationship?
+#### Q. What is data Integrity?
 
 *ToDo*
 
@@ -215,8 +215,8 @@ For example: SELECT, INSERT, etc.
 3) DCL: The SQL commands which deal with rights and permission over the database are classified as DCL.
 For example: GRANT, REVOKE
 
-## Q. How to prevent from database SQL Injection?
-## Q. What are the non standard string types available in SQL?
+#### Q. How to prevent from database SQL Injection?
+#### Q. What are the non standard string types available in SQL?
 
 *ToDo*
 
@@ -232,8 +232,8 @@ For example: GRANT, REVOKE
 
 Both of them are used for string type data. `char` has fixed length and if the inserted data is less than the defined length, required no. of blank spaces are added as padding. `varchar` has variable length and no padding is used to fill up the left out space. So technically, varchar will save space.
 
-## Q. What are the string types available for column sql?
-## Q. What is the difference between blob and text data type in sql?
+#### Q. What are the string types available for column sql?
+#### Q. What is the difference between blob and text data type in sql?
 
 *ToDo*
 
@@ -251,13 +251,13 @@ Both of them are used for string type data. `char` has fixed length and if the i
 
 <br/>
 
-## Q. How to create a table in SQL?
-## Q. What are tables and Fields?
-## Q. How to delete a table in SQL Server?
-## Q. What is the difference between DELETE TABLE and TRUNCATE TABLE commands?
-## Q. What is the difference between TRUNCATE and DROP statements?
-## Q. How to alter a table schema in SQL Server?
-## Q. What are Heap tables in SQL?
+#### Q. How to create a table in SQL?
+#### Q. What are tables and Fields?
+#### Q. How to delete a table in SQL Server?
+#### Q. What is the difference between DELETE TABLE and TRUNCATE TABLE commands?
+#### Q. What is the difference between TRUNCATE and DROP statements?
+#### Q. How to alter a table schema in SQL Server?
+#### Q. What are Heap tables in SQL?
 
 *ToDo*
 
@@ -269,20 +269,42 @@ Both of them are used for string type data. `char` has fixed length and if the i
 
 <br/>
 
-## Q. What are query types in a database?
-## Q. What is the difference between UNION and UNION ALL?
-## Q. What is difference between Co-related sub query and nested sub query?
+#### Q. What are query types in a database?
+#### Q. What is the difference between UNION and UNION ALL?
 
-- Correlated subquery executes single time for every row which is selected by the outer query.
-- It has a reference to a value from the row selected by the outer query.
-- Nested subquery executes only once for the entire nesting (outer) query. It does not contain any reference to the outer query row.
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
 
-- For example,
-- Correlated Subquery:
-select e.EmpFirstName, e.Salary, e.DeptId from Employee e where e.Salary = (select max(Salary) from Employee ee where ee.DeptId = e.DeptId)
+## Q. What is difference between Correlated subquery and nested subquery?
 
-- Nested Subquery:
-select EmpFirstName, Salary, DeptId from Employee where (DeptId, Salary) in (select DeptId, max(Salary) from Employee group by DeptId)
+**1. Correlated subqueries:**
+
+Correlated subqueries are used for row-by-row processing. Each subquery is executed once for every row of the outer query.
+
+A correlated subquery is evaluated once for each row processed by the parent statement. The parent statement can be a SELECT, UPDATE, or DELETE statement.
+
+**Example:**
+
+```sql
+--- Correlated Subquery
+SELECT e.EmpFirstName, e.Salary, e.DeptId 
+FROM Employee e 
+WHERE e.Salary = (SELECT max(Salary) FROM Employee ee WHERE ee.DeptId = e.DeptId)
+```
+
+**2. Nested subqueries:**
+
+A subquery can be nested inside other subqueries. SQL has an ability to nest queries within one another. A subquery is a SELECT statement that is nested within another SELECT statement and which return intermediate results. SQL executes innermost subquery first, then next level.
+
+**Example:**
+
+```sql
+--- Nested Subquery
+SELECT EmpFirstName, Salary, DeptId 
+FROM Employee 
+WHERE (DeptId, Salary) IN (SELECT DeptId, max(Salary) FROM Employee group by DeptId)
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -315,8 +337,8 @@ select EmpFirstName, Salary, DeptId from Employee where (DeptId, Salary) in (sel
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. Explain correlated query work?
-## Q. What is the SQL CASE statement used for?
+#### Q. Explain correlated query work?
+#### Q. What is the SQL CASE statement used for?
 
 *ToDo*
 
@@ -437,12 +459,12 @@ END;
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What is a unique key?
-## Q. What is a foreign key of a database?
-## Q. What is a constraint in SQL?
-## Q. How do I define constraints in SQL?
-## Q. What is a candidate key?
-## Q. What is the default index created on primary key in sql server?
+#### Q. What is a unique key?
+#### Q. What is a foreign key of a database?
+#### Q. What is a constraint in SQL?
+#### Q. How do I define constraints in SQL?
+#### Q. What is a candidate key?
+#### Q. What is the default index created on primary key in sql server?
 
 *ToDo*
 
@@ -536,12 +558,12 @@ Following are different types of Joins:
 | 06. |SELECT c1, c2 FROM t1, t2 |Select columns c1 and c2 from a table named t1 and produce a Cartesian product of rows in tables|
 | 07. |SELECT c1, c2 FROM t1 A INNER JOIN t2 B on condition |Select columns c1 and c2 from a table named t1 and joint it to itself using an INNER JOIN clause|
 
-## Q. What is full join in SQL?
-## Q. What is an outer join in SQL?
-## Q. What is an inner join in SQL?
-## Q. What is left join in SQL Server?
-## Q. What is a right join in SQL Server?
-## Q. What is the default join in SQL?
+#### Q. What is full join in SQL?
+#### Q. What is an outer join in SQL?
+#### Q. What is an inner join in SQL?
+#### Q. What is left join in SQL Server?
+#### Q. What is a right join in SQL Server?
+#### Q. What is the default join in SQL?
 
 *ToDo*
 
@@ -565,9 +587,13 @@ Following are different types of Joins:
 
 ## Q. What are indexes in a Database?
 
-An index is a database structure that you can use to improve the performance of database activity. A database table can have one or more indexes associated with it. An index is defined by a field expression that you specify when you create the index. Typically, the field expression is a single field name, like EMP_ID.
+Indexing is a way to optimize the performance of a database by minimizing the number of disk accesses required when a query is processed. It is a data structure technique which is used to quickly locate and access the data in a database.
 
-An index is used to speed up the performance of queries by reducing the number of database pages that have to be visited:
+Indexes are created using a few database columns
+
+* The first column is the **Search key** that contains a copy of the primary key or candidate key of the table. These values are stored in sorted order so that the corresponding data can be accessed quickly.
+
+* The second column is the **Data Reference** or **Pointer** which contains a set of pointers holding the address of the disk block where that particular key value can be found.
 
 |Sl.No|Query                               | Description                                       |
 |-----|------------------------------------|---------------------------------------------------|
@@ -578,9 +604,17 @@ An index is used to speed up the performance of queries by reducing the number o
 **Example:**
 
 ```sql
-SHOW INDEX FROM table_name;
-ALTER TABLE `table_name` ADD INDEX(`column_name`);
-DROP INDEX index_name ON tbl_name;
+-- Create Index
+CREATE INDEX <index_name> ON <table_name> (column1, column2, ...)
+
+-- Show Index
+SHOW INDEX FROM <table_name>;
+
+-- Alter Index
+ALTER TABLE <table_name> ADD INDEX(`column_name`);
+
+-- Drop Index
+DROP INDEX index_name ON <table_name>;
 ```
 
 <div align="right">
@@ -597,11 +631,22 @@ For example: It is same as the book where by using the index you can directly ju
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between Cluster and Non-Cluster Index?
-## Q. How to create index in SQL Server?
+#### Q. What is the difference between Cluster and Non-Cluster Index?
+#### Q. How to create index in SQL Server?
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## Q. What are the types of indexes in sql?
 
-*ToDo*
+**1. Clustered Index:**
+
+Clustered index is the type of indexing that establishes a physical sorting order of rows. Clustered index is like Dictionary; in the dictionary, sorting order is alphabetical and there is no separate index page.
+
+**2. Non-clustered:**
+
+Non-Clustered index is an index structure separate from the data stored in a table that reorders one or more selected columns. The non-clustered index is created to improve the performance of frequently used queries not covered by a clustered index. It\'s like a textbook; the index page is created separately at the beginning of that book.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -634,6 +679,36 @@ For example: It is same as the book where by using the index you can directly ju
 <br/>
 
 ## Q. What is transactions in SQL?
+
+A SQL transaction is a grouping of one or more SQL statements that interact with a database. A transaction in its entirety can commit to a database as a single logical unit or rollback (become undone) as a single logical unit.
+
+In SQL, transactions are essential for maintaining database integrity. They are used to preserve integrity when multiple related operations are executed concurrently, or when multiple users interact with a database concurrently.
+
+**Properties of Transactions:**
+
+Transactions have the following four standard properties, usually referred to by the acronym ACID.
+
+* **Atomicity** − ensures that all operations within the work unit are completed successfully. Otherwise, the transaction is aborted at the point of failure and all the previous operations are rolled back to their former state.
+
+* **Consistency** − ensures that the database properly changes states upon a successfully committed transaction.
+
+* **Isolation** − enables transactions to operate independently of and transparent to each other.
+
+* **Durability** − ensures that the result or effect of a committed transaction persists in case of a system failure.
+
+**Transaction Control:**
+
+The following commands are used to control transactions.
+
+* **COMMIT** − to save the changes.
+
+* **ROLLBACK** − to roll back the changes.
+
+* **SAVEPOINT** − creates points within the groups of transactions in which to ROLLBACK.
+
+* **SET TRANSACTION** − Places a name on a transaction.
+
+**Example:**
 
 ```sql
 -- Exmaple - 01
@@ -669,24 +744,6 @@ INSERT INTO widgetInventory ( description, onhand ) VALUES ( 'toy', 25 );
 ROLLBACK;
 SELECT * FROM widgetInventory;
 SELECT * FROM widgetSales;
-
-
----Example - 02 INSERT Query using Transaction
-
-CREATE TABLE test (
-    id SERIAL,
-    data VARCHAR(256)
-);
-
--- Insert 1,000 times ...
-INSERT INTO test ( data ) VALUES ( 'this is a good sized line of text.' );
-
-
---- Insert 1000 times using Transaction
-START TRANSACTION;
-
-INSERT INTO test ( data ) VALUES ( 'this is a good sized line of text.' );
-COMMIT;
 ```
 
 <div align="right">
@@ -744,8 +801,8 @@ WITH(NOLCOK) is similar as READ UNCOMMITTED.
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What are different transaction levels in SQL?
-## Q. What are the different locks in SQL?
+#### Q. What are different transaction levels in SQL?
+#### Q. What are the different locks in SQL?
 
 *ToDo*
 
@@ -757,8 +814,8 @@ WITH(NOLCOK) is similar as READ UNCOMMITTED.
 
 <br/>
 
-## Q. What is a function in SQL Server?
-## Q. What are the different types of functions in SQL Server?
+#### Q. What is a function in SQL Server?
+#### Q. What are the different types of functions in SQL Server?
 ## Q. What are the reporting aggregate functions available in SQL?
 
 In database management, an aggregate function is a function where the values of multiples rows are grouped to form a single value.
@@ -771,8 +828,8 @@ In database management, an aggregate function is a function where the values of 
 |  04. |MIN	   |Returns the smallest value of the group|
 |  05. |MAX	   |Returns the largest value of the group|
 
-## Q. What are aggregate and scalar functions?
-## Q. What are all the Common SQL Function?
+#### Q. What are aggregate and scalar functions?
+#### Q. What are all the Common SQL Function?
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -782,66 +839,28 @@ In database management, an aggregate function is a function where the values of 
 
 <br/>
 
-## Q. What is Views in SQL?
+## Q. What is View in SQL?
 
 A view is a virtual table that is a result of a query. They can be extremely useful and are often used as a security mechanism, letting users access the data through the view, rather than letting them access the underlying base table:
 
-|Sl.No|Query                                                     | Description                                       |
-|-----|----------------------------------------------------------|---------------------------------------------------|
-| 01. |CREATE VIEW view1 AS SELECT c1, c2 FROM t1 WHERE condition|Create a view, comprising of columns c1 and c2 from a table named t1 where a certain condition has been met.|
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q. What is View in SQL?
+**Syntax:**
 
 ```sql
----Example - 01 : Creating a View
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
 
-SELECT id, album_id, title, track_number, duration DIV 60 AS m, duration MOD 60 AS s
-  FROM track;
+**Example:**
+
+```sql
+--- Creating a View
 
 CREATE VIEW trackView AS
   SELECT id, album_id, title, track_number, duration DIV 60 AS m, duration MOD 60 AS s
     FROM track;
 SELECT * FROM trackView;
-
-
-
----Exmaple - 02 : Joined view
-
-SELECT a.artist AS artist,
-    a.title AS album,
-    t.title AS track,
-    t.track_number AS trackno,
-    t.duration DIV 60 AS m,
-    t.duration MOD 60 AS s
-  FROM track AS t
-  JOIN album AS a
-    ON a.id = t.album_id
-;
-
-
-CREATE VIEW joinedAlbum AS
-  SELECT a.artist AS artist,
-      a.title AS album,
-      t.title AS track,
-      t.track_number AS trackno,
-      t.duration DIV 60 AS m,
-      t.duration MOD 60 AS s
-    FROM track AS t
-    JOIN album AS a
-      ON a.id = t.album_id
-;
-
-SELECT * FROM joinedAlbum;
-SELECT * FROM joinedAlbum WHERE artist = 'Jimi Hendrix';
-
-
----Example - 03 : Drop View
-
-DROP VIEW IF EXISTS joinedAlbum;
 ```
 
 <div align="right">
@@ -854,72 +873,40 @@ DROP VIEW IF EXISTS joinedAlbum;
 
 ## Q. What are the triggers in SQL?
 
-A trigger is a special type of stored procedure that automatically executes when a user tries to modify data through a DML event (data manipulation language). A DML event is an INSERT, UPDATE or DELETE statement on a table or view:
+A trigger is a stored procedure in database which automatically invokes whenever a special event in the database occurs. For example, a trigger can be invoked when a row is inserted into a specified table or when certain table columns are being updated.
+
+**Syntax:**
 
 ```sql
-CREATE OR MODIFY TRIGGER trigger_name
-WHEN EVENT
-
-ON table_name TRIGGER_TYPE
-
-EXECUTE stored_procedure
+CREATE [OR REPLACE ] TRIGGER <trigger_name>
+{BEFORE | AFTER | INSTEAD OF }
+{INSERT [OR] | UPDATE [OR] | DELETE}
+ON <table_name>
+[FOR EACH ROW]
+WHEN (condition)
+[trigger_body]
 ```
 
-WHEN:
-* BEFORE – invoke before the event occurs
-* AFTER – invoke after the event occurs
-
-EVENT:
-* INSERT – invoke for insert
-* UPDATE – invoke for update
-* DELETE – invoke for delete
-
-TRIGGER_TYPE:
-* FOR EACH ROW
-* FOR EACH STATEMENT
+**Example - 01:**
 
 ```sql
-!-- Delete a specific trigger
-DROP TRIGGER trigger_name
-```
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q. What is Trigger in SQL?
-
-**Example - 01:** Updating a table with a trigger
-
-```sql
-CREATE TABLE widgetCustomer ( id SERIAL, name VARCHAR(255), last_order_id BIGINT );
-CREATE TABLE widgetSale ( id SERIAL, item_id BIGINT, customer_id BIGINT, quan INT, price DECIMAL(9,2) );
-
-INSERT INTO widgetCustomer (name) VALUES ('Bob');
-INSERT INTO widgetCustomer (name) VALUES ('Sally');
-INSERT INTO widgetCustomer (name) VALUES ('Fred');
-
-SELECT * FROM widgetCustomer;
-
-CREATE TRIGGER newWidgetSale AFTER INSERT ON widgetSale
-    FOR EACH ROW
-    UPDATE widgetCustomer SET last_order_id = NEW.id WHERE id = NEW.customer_id
-;
-
-INSERT INTO widgetSale (item_id, customer_id, quan, price) VALUES (1, 3, 5, 19.95);
-INSERT INTO widgetSale (item_id, customer_id, quan, price) VALUES (2, 2, 3, 14.95);
-INSERT INTO widgetSale (item_id, customer_id, quan, price) VALUES (3, 1, 1, 29.95);
-SELECT * FROM widgetSale;
-SELECT * FROM widgetCustomer;
+CREATE TRIGGER employee_name 
+after INSERT 
+on 
+employee 
+for each row 
+BEGIN 
+   UPDATE employee set full_name = first_name || ' ' || last_name;
+END;
 ```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. Why and when to use a trigger?
-## Q. What are the different types of triggers?
-## Q. How many TRIGGERS are possible in MySql?
+#### Q. Why and when to use a trigger?
+#### Q. What are the different types of triggers?
+#### Q. How many TRIGGERS are possible in MySql?
 
 *ToDo*
 
@@ -931,21 +918,73 @@ SELECT * FROM widgetCustomer;
 
 <br/>
 
-## Q. What are cursors and when they are useful?
+## Q. What are cursor and when they are useful?
 
 When we execute any SQL operations, SQL Server opens a work area in memory which is called Cursor. When it is required to perform the row by row operations which are not possible with the set-based operations then cursor is used.
 
 There are two of cursors:
 
-**1. Implicate Cursor:**
+**1. Implicit Cursor:**
 
-* SQL Server automatically manages cursors for all data manipulation statements. These cursors are called implicit cursors.
+Implicit Cursors are also known as Default Cursors of SQL SERVER. These Cursors are allocated by SQL SERVER when the user performs DML operations.
 
 **2. Explicit Cursor:**
 
 * When the programmer wants to perform the row by row operations for the result set containing more than one row, then he explicitly declare a cursor with a name.
+
 * They are managed by OPEN, FETCH and CLOSE.
+
 * %FOUND, %NOFOUND, %ROWCOUNT and %ISOPEN attributes are used in both types of cursors.
+
+**1. Declare Cursor Object:**
+
+**Syntax:**
+
+```sql
+--- DECLARE cursor_name CURSOR FOR SELECT * FROM table_name
+DECLARE s1 CURSOR FOR SELECT * FROM studDetails
+```
+
+**2. Open Cursor Connection:**
+
+```sql
+-- OPEN cursor_connection
+OPEN s1
+```
+
+**3. Fetch Data from cursor:**
+
+There are total 6 methods to access data from cursor.
+
+* **FIRST** - is used to fetch only the first row from cursor table.
+* **LAST** - is used to fetch only last row from cursor table.
+* **NEXT** - is used to fetch data in forward direction from cursor table.
+* **PRIOR** - is used to fetch data in backward direction from cursor table.
+* **ABSOLUTE** - n is used to fetch the exact nth row from cursor table.
+* **RELATIVE** - n is used to fetch the data in incremental way as well as decremental way.
+
+```sql
+FETCH FIRST FROM s1
+FETCH LAST FROM s1
+FETCH NEXT FROM s1
+FETCH PRIOR FROM s1
+FETCH ABSOLUTE 7 FROM s1
+FETCH RELATIVE -2 FROM s1
+```
+
+**4. Close cursor connection:**
+
+```sql
+--- CLOSE cursor_name
+CLOSE s1
+```
+
+**5. Deallocate cursor memory:**
+
+```sql
+--- DEALLOCATE cursor_name
+DEALLOCATE s1
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -979,11 +1018,33 @@ Stored procedure stored inside the database. This also includes the executable c
 
 ## Q. What is stored procedure in SQL?
 
-A stored procedure is a set of SQL statements with an assigned name that can then be easily reused and share by multiple programs:
+Stored Procedures are created to perform one or more DML operations on Database. It is nothing but the group of SQL statements that accepts some input in the form of parameters and performs some task and may or may not returns a value.
 
-|Sl.No|Query                               | Description                                       |
-|-----|------------------------------------|---------------------------------------------------|
-| 01. |CREATE PROCEDURE procedure_name  @variable AS datatype = value AS -- Comments SELECT * FROM tGO |Create a procedure called procedure_name, create a local variable and then select from table t|
+**Syntax:**
+
+```sql
+CREATE or REPLACE PROCEDURE name(parameters)
+IS
+variables;
+BEGIN
+//statements;
+END;
+```
+
+**Example:**
+
+```sql
+CREATE PROCEDURE SelectAllCustomers
+AS
+SELECT * FROM Customers
+GO;
+```
+
+Execute the stored procedure above as follows:
+
+```sql
+EXEC SelectAllCustomers;
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -1077,8 +1138,8 @@ DROP FUNCTION IF EXISTS track_len;
 DROP PROCEDURE IF EXISTS total_duration;
 ```
 
-## Q. What is the difference between Stored Procedure and User Defined Function?
-## Q. How can you raise custom errors from stored procedure?
+#### Q. What is the difference between Stored Procedure and User Defined Function?
+#### Q. How can you raise custom errors from stored procedure?
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -1133,20 +1194,20 @@ SELECT RANK() OVER(ORDER BY BirthDate DESC) AS [RowNumber], FirstName, BirthDate
 
 Following are the reasons for the poor performance of a query:
 
-- No indexes.
-- Excess recompilations of stored procedures.
-- Procedures and triggers without SET NOCOUNT ON.
-- Poorly written query with unnecessarily complicated joins.
-- Highly normalized database design.
-- Excess usage of cursors and temporary tables.
-- Queries with predicates that use comparison operators between different columns of the same table.
-- Queries with predicates that use operators, and any one of the following are true: 
-- There are no statistics on the columns involved on either side of the operators.
-- The distribution of values in the statistics is not uniform, but the query seeks a highly selective value set. This situation can be especially true if the operator is anything other than the equality (=) operator.
-- The predicate uses the not equal to (!=) comparison operator or the NOT logical operator.
-- Queries that use any of the SQL Server built-in functions or a scalar-valued, user-defined function whose argument is not a constant value.
-- Queries that involve joining columns through arithmetic or string concatenation operators.
-- Queries that compare variables whose values are not known when the query is compiled and optimized.
+* No indexes.
+* Excess recompilations of stored procedures.
+* Procedures and triggers without SET NOCOUNT ON.
+* Poorly written query with unnecessarily complicated joins.
+* Highly normalized database design.
+* Excess usage of cursors and temporary tables.
+* Queries with predicates that use comparison operators between different columns of the same table.
+* Queries with predicates that use operators, and any one of the following are true:
+* There are no statistics on the columns involved on either side of the operators.
+* The distribution of values in the statistics is not uniform, but the query seeks a highly selective value set. This situation can be especially true if the operator is anything other than the equality (=) operator.
+* The predicate uses the not equal to (!=) comparison operator or the NOT logical operator.
+* Queries that use any of the SQL Server built-in functions or a scalar-valued, user-defined function whose argument is not a constant value.
+* Queries that involve joining columns through arithmetic or string concatenation operators.
+* Queries that compare variables whose values are not known when the query is compiled and optimized.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -1207,11 +1268,11 @@ It is primarily of interest to developers. The storage engine is a “stub” th
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. How to find the unique values if the value in the column is repeated?
-## Q. How to test performance of database?
-## Q. What is SQL Profiler?
-## Q. How to get @@ERROR and @@ROWCOUNT at the same time?
-## Q. Explain about buffer cash and log Cache in SQL Server?
+#### Q. How to find the unique values if the value in the column is repeated?
+#### Q. How to test performance of database?
+#### Q. What is SQL Profiler?
+#### Q. How to get @@ERROR and @@ROWCOUNT at the same time?
+#### Q. Explain about buffer cash and log Cache in SQL Server?
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
