@@ -43,7 +43,22 @@
 
 <br/>
 
-#### Q. What is a database?
+## Q. What is a database?
+
+A database is a systematic or organized collection of related information that is stored in such a way that it can be easily accessed, retrieved, managed, and updated.
+
+**Syntax:**
+
+```sql
+CREATE DATABASE <databaseName>
+```
+
+**Example:**
+
+```sql
+CREATE DATABASE Product
+```
+
 #### Q. What is SQL?
 #### Q. What is PL/SQL?
 #### Q. What is RDBMS?
