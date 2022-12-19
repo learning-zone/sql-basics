@@ -4,6 +4,8 @@
 
 ## Q. What is difference between Correlated subquery and nested subquery?
 
+**1. Correlated subqueries:**
+
 Correlated subqueries are used for row-by-row processing. Each subquery is executed once for every row of the outer query.
 
 A correlated subquery is evaluated once for each row processed by the parent statement. The parent statement can be a SELECT, UPDATE, or DELETE statement.
@@ -16,6 +18,12 @@ SELECT e.EmpFirstName, e.Salary, e.DeptId
 FROM Employee e 
 WHERE e.Salary = (SELECT max(Salary) FROM Employee ee WHERE ee.DeptId = e.DeptId)
 ```
+
+**2. Nested subqueries:**
+
+A subquery can be nested inside other subqueries. SQL has an ability to nest queries within one another. A subquery is a SELECT statement that is nested within another SELECT statement and which return intermediate results. SQL executes innermost subquery first, then next level.
+
+**Example:**
 
 ```sql
 --- Nested Subquery
