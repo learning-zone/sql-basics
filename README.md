@@ -245,7 +245,7 @@ Both of them are used for string type data. `char` has fixed length and if the i
 
 <br/>
 
-## Q. How to create a database using SQL?
+#### Q. How to create a database using SQL?
 
 ## # 4. SQL Table
 
@@ -376,7 +376,7 @@ WHERE (DeptId, Salary) IN (SELECT DeptId, max(Salary) FROM Employee group by Dep
 
 ## Q. What are COMMIT and ROLLBACK in SQL?
 
-COMMIT statement is used to end the current transaction and once the COMMIT statement is exceucted the transaction will be permanent and undone.
+**COMMIT** statement is used to end the current transaction and once the COMMIT statement is exceucted the transaction will be permanent and undone.
 
 **Example:**:
 
@@ -387,9 +387,9 @@ COMMIT;
 END;
 ```
 
--ROLLBACK statement is used to end the current transaction and undone the changes which was made by that transaction.
+**ROLLBACK** statement is used to end the current transaction and undone the changes which was made by that transaction.
 
-**Syntax: ROLLBACK [TO] Savepoint_name;
+**Syntax:** ROLLBACK [TO] Savepoint_name;
 
 **Example:**:
 
