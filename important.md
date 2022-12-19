@@ -176,11 +176,7 @@ A view is a virtual table that is a result of a query. They can be extremely use
 |-----|----------------------------------------------------------|---------------------------------------------------|
 | 01. |CREATE VIEW view1 AS SELECT c1, c2 FROM t1 WHERE condition|Create a view, comprising of columns c1 and c2 from a table named t1 where a certain condition has been met.|
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. What is View in SQL?
+**Example:**
 
 ```sql
 ---Example - 01 : Creating a View
