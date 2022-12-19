@@ -417,7 +417,7 @@ A list of data types used in MySQL database. This is based on MySQL 8.0.
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between blob and text data type in MySQL?
+## Q. What are the differences between the BLOB and TEXT datatypes in MySQL?
 
 BLOB stands for Binary Large Objects and as its name suggests, it can be used for storing binary data while TEXT is used for storing large number of strings. BLOB can be used to store **binary data** that means we can store pictures, videos, sounds and programs also.
 
