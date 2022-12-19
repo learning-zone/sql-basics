@@ -144,24 +144,6 @@ INSERT INTO widgetInventory ( description, onhand ) VALUES ( 'toy', 25 );
 ROLLBACK;
 SELECT * FROM widgetInventory;
 SELECT * FROM widgetSales;
-
-
----Example - 02 INSERT Query using Transaction
-
-CREATE TABLE test (
-    id SERIAL,
-    data VARCHAR(256)
-);
-
--- Insert 1,000 times ...
-INSERT INTO test ( data ) VALUES ( 'this is a good sized line of text.' );
-
-
---- Insert 1000 times using Transaction
-START TRANSACTION;
-
-INSERT INTO test ( data ) VALUES ( 'this is a good sized line of text.' );
-COMMIT;
 ```
 
 <div align="right">
@@ -184,51 +166,12 @@ WHERE condition;
 **Example:**
 
 ```sql
----Example - 01 : Creating a View
-
-SELECT id, album_id, title, track_number, duration DIV 60 AS m, duration MOD 60 AS s
-  FROM track;
+--- Creating a View
 
 CREATE VIEW trackView AS
   SELECT id, album_id, title, track_number, duration DIV 60 AS m, duration MOD 60 AS s
     FROM track;
 SELECT * FROM trackView;
-
-
-
----Exmaple - 02 : Joined view
-
-SELECT a.artist AS artist,
-    a.title AS album,
-    t.title AS track,
-    t.track_number AS trackno,
-    t.duration DIV 60 AS m,
-    t.duration MOD 60 AS s
-  FROM track AS t
-  JOIN album AS a
-    ON a.id = t.album_id
-;
-
-
-CREATE VIEW joinedAlbum AS
-  SELECT a.artist AS artist,
-      a.title AS album,
-      t.title AS track,
-      t.track_number AS trackno,
-      t.duration DIV 60 AS m,
-      t.duration MOD 60 AS s
-    FROM track AS t
-    JOIN album AS a
-      ON a.id = t.album_id
-;
-
-SELECT * FROM joinedAlbum;
-SELECT * FROM joinedAlbum WHERE artist = 'Jimi Hendrix';
-
-
----Example - 03 : Drop View
-
-DROP VIEW IF EXISTS joinedAlbum;
 ```
 
 <div align="right">
@@ -262,30 +205,6 @@ for each row
 BEGIN 
    UPDATE employee set full_name = first_name || ' ' || last_name;
 END;
-```
-
-**Example - 02:** Updating a table with a trigger
-
-```sql
-CREATE TABLE widgetCustomer ( id SERIAL, name VARCHAR(255), last_order_id BIGINT );
-CREATE TABLE widgetSale ( id SERIAL, item_id BIGINT, customer_id BIGINT, quan INT, price DECIMAL(9,2) );
-
-INSERT INTO widgetCustomer (name) VALUES ('Bob');
-INSERT INTO widgetCustomer (name) VALUES ('Sally');
-INSERT INTO widgetCustomer (name) VALUES ('Fred');
-
-SELECT * FROM widgetCustomer;
-
-CREATE TRIGGER newWidgetSale AFTER INSERT ON widgetSale
-    FOR EACH ROW
-    UPDATE widgetCustomer SET last_order_id = NEW.id WHERE id = NEW.customer_id
-;
-
-INSERT INTO widgetSale (item_id, customer_id, quan, price) VALUES (1, 3, 5, 19.95);
-INSERT INTO widgetSale (item_id, customer_id, quan, price) VALUES (2, 2, 3, 14.95);
-INSERT INTO widgetSale (item_id, customer_id, quan, price) VALUES (3, 1, 1, 29.95);
-SELECT * FROM widgetSale;
-SELECT * FROM widgetCustomer;
 ```
 
 <div align="right">
