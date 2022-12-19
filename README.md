@@ -83,9 +83,55 @@ SELECT * FROM <table_name>
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-#### Q. What are the types of subquery?
-#### Q. What is a database relationship?
-#### Q. What is data Integrity?
+## Q. What is a database relationship?
+
+Database relationships are associations between tables that are created using join statements to retrieve data. It helps improve table structures and reduce redundant data.
+
+Understanding relationship in databases is important as it allows you to fetch data from multiple tables simultaneously and helps ensure that data in databases are consistent and updated.
+
+**Types of Database Relationships:**
+
+**1. One-to-One:**
+
+A one-to-one relationship is a relationship between two tables where each table can have only one matching row in the other table.
+
+<p align="center">
+  <img src="assets/one-to-one.png" alt="One to One" width="400px" />
+</p>
+
+Using the above screenshot as an example, the business case is that each employee\'s pay details must be stored in a separate table to the employee\'s contact details. In such a case, there can only be one row in the Pay table that matches a given employee in the Employees table. This is a good candidate for a one-to-one relationship.
+
+**2. One-to-Many:**
+
+The one-to-many relationship is similar to the one-to-one relationship, except that it allows multiple matching rows in one of the tables.
+
+<p align="center">
+  <img src="assets/one-to-many.png" alt="One to Many" width="400px" />
+</p>
+
+In the above example, each author can have many books, but each book can only have one author.
+
+Therefore, the Books table is allowed to contain multiple rows with the same AuthorId value. If an author has released five books, then there would be one row in Authors for that author, and five rows in Books, each with that author\'s AuthorId.
+
+**3. Many-to-Many:**
+
+In a many-to-many relationship, each side of the relationship can contain multiple rows.
+
+<p align="center">
+  <img src="assets/many-to-many.png" alt="Many to Many" width="400px" />
+</p>
+
+In this example, each book is allowed to have multiple authors. Therefore, I created a lookup table (also known as a "junction table") that stores both the AuthorId and the BookId.
+
+These two columns could be configured to be the primary key of the table (in which case they would be a "composite primary key" or simply "composite key"), or you could create a separate column to be the primary key.
+
+Note that the Books table doesn\'t have AuthorId in this case. That column has been moved to the AuthorBooks table so that we can have many AuthorIds for the same BookId.
+
+<div align="right">
+  <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is data Integrity?
 
 *ToDo*
 
