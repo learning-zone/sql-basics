@@ -293,14 +293,34 @@ DEALLOCATE s1
 
 ## Q. What is stored procedure in SQL?
 
-A stored procedure is a set of SQL statements with an assigned name that can then be easily reused and share by multiple programs:
+Stored Procedures are created to perform one or more DML operations on Database. It is nothing but the group of SQL statements that accepts some input in the form of parameters and performs some task and may or may not returns a value.
 
-|Sl.No|Query                               | Description                                       |
-|-----|------------------------------------|---------------------------------------------------|
-| 01. |CREATE PROCEDURE procedure_name  @variable AS datatype = value AS -- Comments SELECT * FROM tGO |Create a procedure called procedure_name, create a local variable and then select from table t|
+**Syntax:**
+
+```sql
+CREATE or REPLACE PROCEDURE name(parameters)
+IS
+variables;
+BEGIN
+//statements;
+END;
+```
+
+**Example:**
+
+```sql
+CREATE PROCEDURE SelectAllCustomers
+AS
+SELECT * FROM Customers
+GO;
+```
+
+Execute the stored procedure above as follows:
+
+```sql
+EXEC SelectAllCustomers;
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
-## Q. What is the difference between Cluster and Non-Cluster Index?
