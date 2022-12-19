@@ -211,21 +211,73 @@ END;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are cursors and when they are useful?
+## Q. What are cursor and when they are useful?
 
 When we execute any SQL operations, SQL Server opens a work area in memory which is called Cursor. When it is required to perform the row by row operations which are not possible with the set-based operations then cursor is used.
 
 There are two of cursors:
 
-**1. Implicate Cursor:**
+**1. Implicit Cursor:**
 
-* SQL Server automatically manages cursors for all data manipulation statements. These cursors are called implicit cursors.
+Implicit Cursors are also known as Default Cursors of SQL SERVER. These Cursors are allocated by SQL SERVER when the user performs DML operations.
 
 **2. Explicit Cursor:**
 
 * When the programmer wants to perform the row by row operations for the result set containing more than one row, then he explicitly declare a cursor with a name.
+
 * They are managed by OPEN, FETCH and CLOSE.
+
 * %FOUND, %NOFOUND, %ROWCOUNT and %ISOPEN attributes are used in both types of cursors.
+
+**1. Declare Cursor Object:**
+
+**Syntax:**
+
+```sql
+--- DECLARE cursor_name CURSOR FOR SELECT * FROM table_name
+DECLARE s1 CURSOR FOR SELECT * FROM studDetails
+```
+
+**2. Open Cursor Connection:**
+
+```sql
+-- OPEN cursor_connection
+OPEN s1
+```
+
+**3. Fetch Data from cursor:**
+
+There are total 6 methods to access data from cursor.
+
+* **FIRST** - is used to fetch only the first row from cursor table.
+* **LAST** - is used to fetch only last row from cursor table.
+* **NEXT** - is used to fetch data in forward direction from cursor table.
+* **PRIOR** - is used to fetch data in backward direction from cursor table.
+* **ABSOLUTE** - n is used to fetch the exact nth row from cursor table.
+* **RELATIVE** - n is used to fetch the data in incremental way as well as decremental way.
+
+```sql
+FETCH FIRST FROM s1
+FETCH LAST FROM s1
+FETCH NEXT FROM s1
+FETCH PRIOR FROM s1
+FETCH ABSOLUTE 7 FROM s1
+FETCH RELATIVE -2 FROM s1
+```
+
+**4. Close cursor connection:**
+
+```sql
+--- CLOSE cursor_name
+CLOSE s1
+```
+
+**5. Deallocate cursor memory:**
+
+```sql
+--- DEALLOCATE cursor_name
+DEALLOCATE s1
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
