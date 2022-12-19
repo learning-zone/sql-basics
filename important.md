@@ -237,33 +237,31 @@ DROP VIEW IF EXISTS joinedAlbum;
 
 ## Q. What are the triggers in SQL?
 
-A trigger is a special type of stored procedure that automatically executes when a user tries to modify data through a DML event (data manipulation language). A DML event is an INSERT, UPDATE or DELETE statement on a table or view:
+A trigger is a stored procedure in database which automatically invokes whenever a special event in the database occurs. For example, a trigger can be invoked when a row is inserted into a specified table or when certain table columns are being updated.
+
+**Syntax:**
 
 ```sql
-CREATE OR MODIFY TRIGGER trigger_name
-WHEN EVENT
-
-ON table_name TRIGGER_TYPE
-
-EXECUTE stored_procedure
+CREATE [OR REPLACE ] TRIGGER <trigger_name>
+{BEFORE | AFTER | INSTEAD OF }
+{INSERT [OR] | UPDATE [OR] | DELETE}
+ON <table_name>
+[FOR EACH ROW]
+WHEN (condition)
+[trigger_body]
 ```
 
-WHEN:
-* BEFORE – invoke before the event occurs
-* AFTER – invoke after the event occurs
-
-EVENT:
-* INSERT – invoke for insert
-* UPDATE – invoke for update
-* DELETE – invoke for delete
-
-TRIGGER_TYPE:
-* FOR EACH ROW
-* FOR EACH STATEMENT
+**Example:**
 
 ```sql
-!-- Delete a specific trigger
-DROP TRIGGER trigger_name
+CREATE TRIGGER employee_name 
+after INSERT 
+on 
+employee 
+for each row 
+BEGIN 
+   UPDATE employee set full_name = first_name || ' ' || last_name;
+END;
 ```
 
 <div align="right">
