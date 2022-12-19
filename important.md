@@ -80,6 +80,36 @@ Non-Clustered index is an index structure separate from the data stored in a tab
 
 ## Q. What is transactions in SQL?
 
+A SQL transaction is a grouping of one or more SQL statements that interact with a database. A transaction in its entirety can commit to a database as a single logical unit or rollback (become undone) as a single logical unit.
+
+In SQL, transactions are essential for maintaining database integrity. They are used to preserve integrity when multiple related operations are executed concurrently, or when multiple users interact with a database concurrently.
+
+**Properties of Transactions:**
+
+Transactions have the following four standard properties, usually referred to by the acronym ACID.
+
+* **Atomicity** − ensures that all operations within the work unit are completed successfully. Otherwise, the transaction is aborted at the point of failure and all the previous operations are rolled back to their former state.
+
+* **Consistency** − ensures that the database properly changes states upon a successfully committed transaction.
+
+* **Isolation** − enables transactions to operate independently of and transparent to each other.
+
+* **Durability** − ensures that the result or effect of a committed transaction persists in case of a system failure.
+
+**Transaction Control:**
+
+The following commands are used to control transactions.
+
+* **COMMIT** − to save the changes.
+
+* **ROLLBACK** − to roll back the changes.
+
+* **SAVEPOINT** − creates points within the groups of transactions in which to ROLLBACK.
+
+* **SET TRANSACTION** − Places a name on a transaction.
+
+**Example:**
+
 ```sql
 -- Exmaple - 01
 
