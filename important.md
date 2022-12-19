@@ -251,7 +251,7 @@ WHEN (condition)
 [trigger_body]
 ```
 
-**Example:**
+**Example - 01:**
 
 ```sql
 CREATE TRIGGER employee_name 
@@ -264,13 +264,7 @@ BEGIN
 END;
 ```
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. What is Trigger in SQL?
-
-**Example - 01:** Updating a table with a trigger
+**Example - 02:** Updating a table with a trigger
 
 ```sql
 CREATE TABLE widgetCustomer ( id SERIAL, name VARCHAR(255), last_order_id BIGINT );
