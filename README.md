@@ -918,7 +918,7 @@ END;
 
 <br/>
 
-## Q. What are cursor and when they are useful?
+## Q. What is a cursor?
 
 When we execute any SQL operations, SQL Server opens a work area in memory which is called Cursor. When it is required to perform the row by row operations which are not possible with the set-based operations then cursor is used.
 
