@@ -38,8 +38,6 @@ Indexes are created using a few database columns
 
 * The second column is the **Data Reference** or **Pointer** which contains a set of pointers holding the address of the disk block where that particular key value can be found.
 
-
-
 |Sl.No|Query                               | Description                                       |
 |-----|------------------------------------|---------------------------------------------------|
 | 01. |CREATE INDEX index_name ON t(c1, c2) |Create an index on columns c1 and c2 of the table t |
@@ -49,9 +47,17 @@ Indexes are created using a few database columns
 **Example:**
 
 ```sql
-SHOW INDEX FROM table_name;
-ALTER TABLE `table_name` ADD INDEX(`column_name`);
-DROP INDEX index_name ON tbl_name;
+-- Create Index
+CREATE INDEX <index_name> ON <table_name> (column1, column2, ...)
+
+-- Show Index
+SHOW INDEX FROM <table_name>;
+
+-- Alter Index
+ALTER TABLE <table_name> ADD INDEX(`column_name`);
+
+-- Drop Index
+DROP INDEX index_name ON <table_name>;
 ```
 
 <div align="right">
