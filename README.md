@@ -59,9 +59,30 @@ CREATE DATABASE <databaseName>
 CREATE DATABASE Product
 ```
 
-#### Q. What is SQL?
-#### Q. What is PL/SQL?
-#### Q. What is RDBMS?
+## Q. What is a database table?
+
+A database table is a structure that organises data into rows and columns – forming a grid.
+
+Tables are similar to a worksheets in spreadsheet applications. The rows run horizontally and represent each record. The columns run vertically and represent a specific field. The rows and columns intersect, forming a grid. The intersection of the rows and columns defines each cell in the table.
+
+<p align="center">
+  <img src="assets/table.png" alt="database table" width="400px" />
+</p>
+
+**Syntax:**
+
+```sql
+CREATE TABLE <table_name> (ID INT, NAME VARCHAR(30) )
+
+DROP TABLE <table_name>
+
+SELECT * FROM <table_name>
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 #### Q. What are the types of subquery?
 #### Q. What is a database relationship?
 #### Q. What is data Integrity?
