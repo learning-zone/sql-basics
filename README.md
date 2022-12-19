@@ -330,8 +330,49 @@ For example: SELECT, INSERT, etc.
 3) DCL: The SQL commands which deal with rights and permission over the database are classified as DCL.
 For example: GRANT, REVOKE
 
-#### Q. How to prevent from database SQL Injection?
-#### Q. What are the non standard string types available in SQL?
+## Q. How to prevent from database SQL Injection?
+
+SQL Injection is a code-based vulnerability that allows an attacker to read and access sensitive data from the database. Attackers can bypass security measures of applications and use SQL queries to modify, add, update, or delete records in a database.
+
+**Simple SQL Injection Example:**
+
+```sql
+SELECT id FROM users WHERE username='username' AND password='password' OR 1=1'
+```
+
+Because of the **OR 1=1** statement, the **WHERE** clause returns the first **id** from the **users** table no matter what the **username** and **password** are. The first user id in a database is very often the administrator. In this way, the attacker not only bypasses authentication but also gains administrator privileges.
+
+**Prevent SQL Injections:**
+
+**1. Continuous Scanning and Penetration Testing:**
+
+The automated web application scanner has been the best choice to point out vulnerabilities within the web applications for quite some time now. Now, with SQL injections getting smarter in exploiting logical flaws, website security professionals should explore manual testing with the help of a security vendor.
+
+They can authenticate user inputs against a set of rules for syntax, type, and length. It helps to audit application vulnerabilities discreetly so that you can patch the code before hackers exploit it to their advantage.
+
+**2. Restrict Privileges:**
+
+It is more of a database management function, but enforcing specific privileges to specific accounts helps prevent blind SQL injection attacks. Begin with no privileges account and move on to "read-only", "edit", "delete" and similar privilege levels.
+
+Minimizing privileges to the application will ensure that the attacker, who gets into the database through the application, cannot make unauthorized use of specific data.
+
+**3. Use Query Parameters:**
+
+Dynamic queries create a lot of troubles for security professionals. They have to deal with variable vulnerabilities in each application, which only gets graver with updates and changes. It is recommended that you prepare parameterized queries.
+
+These queries are simple, easy to write, and only pass when each parameter in SQL code is clearly defined. This way, your info is supplied with weapons to differentiate between code and information inputs.
+
+**4. Instant Protection:**
+
+A majority of organizations fail the problems like outdated code, scarcity of resources to test and make changes, no knowledge of application security, and frequent updates in the application. For these, web application protection is the best solution.
+
+A managed web application firewall can be deployed for immediate mitigation of such attacks. It contains custom policies to block any suspicious input and deny information breach instantly. This way, you do not have to manually look for loopholes and mend problems afterward.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are the non standard string types available in SQL?
 
 *ToDo*
 
@@ -497,7 +538,7 @@ WHERE (DeptId, Salary) IN (SELECT DeptId, max(Salary) FROM Employee group by Dep
 
 ```sql
 BEGIN
-UPDATE EmpDetails SET EmpName = ‘Arpit’ where Dept = ‘Developer’
+UPDATE EmpDetails SET EmpName = "Arpit" where Dept = "Developer"
 COMMIT;
 END;
 ```
