@@ -374,7 +374,14 @@ A managed web application firewall can be deployed for immediate mitigation of s
 
 ## Q. What are the non standard string types available in SQL?
 
-*ToDo*
+Following are Non-Standard string types:
+
+| Name     | Max Length |
+|----------|------------|
+|TINYTEXT  |255 bytes   |
+|TEXT      |65,535 bytes|
+|MEDIUMTEXT|16 MB       |
+|LONGTEXT  |4GB         |
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
