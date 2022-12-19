@@ -30,9 +30,15 @@ WHERE (DeptId, Salary) IN (SELECT DeptId, max(Salary) FROM Employee group by Dep
 
 ## Q. What are indexes in a Database?
 
-An index is a database structure that you can use to improve the performance of database activity. A database table can have one or more indexes associated with it. An index is defined by a field expression that you specify when you create the index. Typically, the field expression is a single field name, like EMP_ID.
+Indexing is a way to optimize the performance of a database by minimizing the number of disk accesses required when a query is processed. It is a data structure technique which is used to quickly locate and access the data in a database.
 
-An index is used to speed up the performance of queries by reducing the number of database pages that have to be visited:
+Indexes are created using a few database columns
+
+* The first column is the **Search key** that contains a copy of the primary key or candidate key of the table. These values are stored in sorted order so that the corresponding data can be accessed quickly.
+
+* The second column is the **Data Reference** or **Pointer** which contains a set of pointers holding the address of the disk block where that particular key value can be found.
+
+
 
 |Sl.No|Query                               | Description                                       |
 |-----|------------------------------------|---------------------------------------------------|
@@ -51,6 +57,8 @@ DROP INDEX index_name ON tbl_name;
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## Q. What are the types of indexes in sql?
 
 ## Q. What is transactions in SQL?
 
@@ -276,4 +284,3 @@ A stored procedure is a set of SQL statements with an assigned name that can the
 </div>
 
 ## Q. What is the difference between Cluster and Non-Cluster Index?
-## Q. What are the types of indexes in sql?
