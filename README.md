@@ -89,9 +89,9 @@ There are many relational operators that are used to perform actions on relation
 
 ## Q. What do you understand by database Normalization?
 
-- Normalization is very essential part of relational model. 
-- Normal forms are the common form of normalization. 
-- It helps in reducing redundancy to increase the information overall. 
+- Normalization is very essential part of relational model.
+- Normal forms are the common form of normalization.
+- It helps in reducing redundancy to increase the information overall.
 - It has some disadvantages as it increases complexity and have some overhead of processing.
 - It consists of set of procedures that eliminates the domains that are non-atomic and redundancy of data that prevents data manipulation and loss of data integrity.
 
@@ -427,9 +427,11 @@ END;
 
 ## Q. What is the difference between primary and foreign key?
 
-- Primary key uniquely identify a relationship in a database, whereas foreign key is the key that is in other relation and it has been referenced from the primary key from other table.
-- Primary key remains one only for the table, whereas there can be more than one foreign key.
-- Primary key is unique and won'\t be shared between many tables, but foreign key will be shared between more than one table and will be used to tell the relationship between them.
+* Primary key uniquely identify a relationship in a database, whereas foreign key is the key that is in other relation and it has been referenced from the primary key from other table.
+
+* Primary key remains one only for the table, whereas there can be more than one foreign key.
+
+* Primary key is unique and won'\t be shared between many tables, but foreign key will be shared between more than one table and will be used to tell the relationship between them.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -506,12 +508,17 @@ Following are different types of Joins:
 
 ## Q. What are Self Join and Cross Join?
 
-- When we want to join a table to itself then SELF JOIN is used.
-- We can give one or more aliases to eliminate the confusion.
-- A self join can be used as any type, if both the tables are same.
-- The simple example where we can use SELF JOIN is if in a company have a hierarchal reporting structure and an employee reports to another.
-- A cross join give the number of rows in the first table multiplied by the number of rows in second table.
-- The simple example where we can use CROSS JOIJ is if in an organization wants to combine every Employee with family table to see each Employee with each family member.
+* When we want to join a table to itself then SELF JOIN is used.
+
+* We can give one or more aliases to eliminate the confusion.
+
+* A self join can be used as any type, if both the tables are same.
+
+* The simple example where we can use SELF JOIN is if in a company have a hierarchal reporting structure and an employee reports to another.
+
+* A cross join give the number of rows in the first table multiplied by the number of rows in second table.
+
+* The simple example where we can use CROSS JOIJ is if in an organization wants to combine every Employee with family table to see each Employee with each family member.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -556,20 +563,6 @@ Following are different types of Joins:
 
 <br/>
 
-## Q. What is Index?
-
-- A pointer to data having physical representation is called as Index.
-- Record can be located quickly and efficiently by creating Indices on existing tables.
-- Each index in a table has some valid name and we can have more than one index in different columns of a table.
-- We can speed up queries by setting up index in a column of a table.
-- In a table , each row is examined by sql server to fulfil our query is known as table scan and it only happen when there is no index available to help the query.
-- On large tables, the table scan has huge impact on performance.
-- Clustered and Non clustered indexes are the most widely used indexes in a database.
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
 ## Q. What are indexes in a Database?
 
 An index is a database structure that you can use to improve the performance of database activity. A database table can have one or more indexes associated with it. An index is defined by a field expression that you specify when you create the index. Typically, the field expression is a single field name, like EMP_ID.
@@ -596,9 +589,9 @@ DROP INDEX index_name ON tbl_name;
 
 ## Q. What is an index represent in relational database model?
 
-- Index is a way to provide quick access to the data and structure. It has indexes maintain and can be created to combine attributes on a relation. Index allows the queries to filter out the searches faster and matching data can be found earlier with simplicity. 
+Index is a way to provide quick access to the data and structure. It has indexes maintain and can be created to combine attributes on a relation. Index allows the queries to filter out the searches faster and matching data can be found earlier with simplicity.
 
-- For example: It is same as the book where by using the index you can directly jump to a defined section. In relational database there is a provision to give multiple indexing techniques to optimize the data distribution.
+For example: It is same as the book where by using the index you can directly jump to a defined section. In relational database there is a provision to give multiple indexing techniques to optimize the data distribution.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -702,10 +695,13 @@ COMMIT;
 
 ## Q. What is the purpose of acid properties?
 
-- ACID stands for Atomicity, Consistency, Isolation and durability and it plays an important role in the database. 
-- These properties allow the database to be more convenient to access and use. This allows data to be shared more safely in between the tables.
-- If these properties are not being implemented then the data will become inconsistent and inaccurate. 
-- It helps in maintaining the accuracy of the data in the database.
+* ACID stands for Atomicity, Consistency, Isolation and durability and it plays an important role in the database.
+
+* These properties allow the database to be more convenient to access and use. This allows data to be shared more safely in between the tables.
+
+* If these properties are not being implemented then the data will become inconsistent and inaccurate.
+
+* It helps in maintaining the accuracy of the data in the database.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -713,13 +709,19 @@ COMMIT;
 
 ## Q. What is a NOLOCK?
 
-- NOLOCK is used to improve concurrency on a busy system.
-- On data read, no lock can be taken on SELECT statement.
-- When some other process is updating the data on the same time you are reading it is known as dirty read.
-- Read (Shared) locks are taken by SELECT Statements.
-- Simultaneous access of multiple SELECT statements is allowed in Shared lock but modification process is not allowed.
-- The result to your system is blocking.
-- Update will start on completion of all the reads.
+* NOLOCK is used to improve concurrency on a busy system.
+
+* On data read, no lock can be taken on SELECT statement.
+
+* When some other process is updating the data on the same time you are reading it is known as dirty read.
+
+* Read (Shared) locks are taken by SELECT Statements.
+
+* Simultaneous access of multiple SELECT statements is allowed in Shared lock but modification process is not allowed.
+
+* The result to your system is blocking.
+
+* Update will start on completion of all the reads.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -849,19 +851,6 @@ DROP VIEW IF EXISTS joinedAlbum;
 ## # 20. SQL Triggers
 
 <br/>
-
-## Q. What is Trigger?
-
-- A Trigger is a process of firing an action when some event like Insert, Update or Delete occurs.
-- A trigger can'\t be called or even executed rather they are automatically become active by the DBMS whenever some modification in associated table occur.
-- Triggers are event driven and can attached to particular table in a database.
-- Triggers are implicitly executed and stored procedures are also executed by triggers.
-- Referential integrity is maintained by the trigger and they are managed and stored by DBMS.
-- Triggers can be nested also, in which Insert, Update or Delete logic can be fired from the trigger itself.
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
 
 ## Q. What are the triggers in SQL?
 
