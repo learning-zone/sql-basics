@@ -451,19 +451,152 @@ mysql> desc BlobTableDemo;
 
 #### Q. How to create a database using SQL?
 
+To create a database using SQL, you can use the `CREATE DATABASE` statement followed by the name of the database you want to create. Here's the basic syntax:
+
+```sql
+CREATE DATABASE database_name;
+```
+For example, if you want to create a database called "mydatabase", you can run the following SQL query:
+
+```sql
+CREATE DATABASE mydatabase;
+```
+Note that depending on your SQL environment, you may need to have appropriate permissions to create a database.
+
 ## # 4. SQL Table
 
 <br/>
 
 #### Q. How to create a table in SQL?
+
+To create a table in SQL, you can use the `CREATE TABLE` statement. The basic syntax for creating a table is as follows:
+
+```sql
+CREATE TABLE table_name (
+   column1 datatype constraint,
+   column2 datatype constraint,
+   column3 datatype constraint,
+   ...
+   columnN datatype constraint
+);
+```
+Here's a breakdown of the syntax:
+
+. `CREATE TABLE` is the SQL keyword that specifies you want to create a table.
+. `table_name` is the name you want to give to your table.
+`(column1, column2, ..., columnN)` is a comma-separated list of column names you want to create in your table.
+.`datatype` is the data type you want to assign to each column.
+.`constraint` is an optional condition or rule that you want to set on a column.
+
+For example, if you want to create a simple table with two columns called `users` and `email`, where `users` is of type `VARCHAR(50)` and `email` is of type `VARCHAR(100)`, you can use the following SQL statement:
+
+```sql
+CREATE TABLE user_info (
+   users VARCHAR(50),
+   email VARCHAR(100)
+);
+```
+Note that different SQL database management systems may have slightly different syntax or rules for creating tables, so it's always a good idea to consult the documentation for the specific database you're using.
+
 #### Q. What are tables and Fields?
+
+In a relational database management system (RDBMS), a table is a collection of data organized in rows and columns. Tables are the primary means to store data in a relational database. Each table represents an entity, such as a customer, product, or transaction, and each row in the table represents a single instance or record of that entity. For example, a table named "Customers" might contain fields such as "CustomerID", "FirstName", "LastName", "Address", and "Phone".
+
+Fields, also known as columns or attributes, are the individual elements of a table that hold specific pieces of data for each row. Each field represents a specific characteristic or property of the entity the table represents. For example, in a table of customers, fields might include "CustomerID", "FirstName", "LastName", "Address", and "Phone". Each row in the table represents a single customer, and each field in that row contains a specific piece of information about that customer, such as their name or address.
+
 #### Q. How to delete a table in SQL Server?
+
+To delete a table in SQL Server, you can use the `DROP TABLE` statement. The syntax is as follows:
+
+```sql
+DROP TABLE table_name;
+```
+Here, `table_name` is the name of the table you want to delete.
+
+For example, to delete a table called "customers", you would use the following SQL statement:
+
+```sql
+DROP TABLE customers;
+```
+Keep in mind that when you delete a table, all the data stored in that table is also deleted, and it cannot be recovered. Therefore, make sure that you have a backup of the table and its data before deleting it.
+
 #### Q. What is the difference between DELETE TABLE and TRUNCATE TABLE commands?
+
+DELETE TABLE and TRUNCATE TABLE are both SQL commands used to remove data from a table, but there are differences between them:
+
+.DELETE TABLE is a DML (Data Manipulation Language) command that removes all rows from a table based on a condition, or removes all rows if no condition is specified. DELETE TABLE is slower than TRUNCATE TABLE because it maintains a transaction log, which can be rolled back in case of errors. DELETE TABLE is useful when you want to remove specific rows from a table.
+
+.TRUNCATE TABLE is a DDL (Data Definition Language) command that removes all rows from a table without logging the individual row deletions. TRUNCATE TABLE is faster than DELETE TABLE because it does not log every row deletion. TRUNCATE TABLE is useful when you want to remove all rows from a table, but preserve the table structure.
+
+In summary, DELETE TABLE is used to remove specific rows from a table and maintains a transaction log, while TRUNCATE TABLE is used to remove all rows from a table and does not maintain a transaction log.
+
 #### Q. What is the difference between TRUNCATE and DROP statements?
+
+TRUNCATE and DROP are both SQL statements used to remove data from a table, but they have different functionalities.
+
+TRUNCATE TABLE removes all data from the table, but leaves the table structure intact. It is a fast operation because it only deallocates the data pages used by the table, making it more efficient than using DELETE for large tables. However, it cannot be rolled back and it also resets the identity seed value of the table.
+
+DROP TABLE, on the other hand, removes the entire table along with its structure and data, so it is a more drastic operation than TRUNCATE. It is useful when you want to completely remove a table and all its dependencies from the database. Like TRUNCATE, it cannot be rolled back.
+
+In summary, TRUNCATE is a faster way to delete data from a table without destroying the table structure, while DROP TABLE is a more drastic way to remove a table and its dependencies from the database.
+
+
 #### Q. How to alter a table schema in SQL Server?
+
+To alter a table schema in SQL Server, you can use the `ALTER TABLE` statement along with various sub-commands to modify the table structure. Here is the basic syntax:
+
+```sql
+ALTER TABLE table_name
+[ADD | DROP] column_name datatype [NULL | NOT NULL] [DEFAULT default_value] 
+[ADD | DROP] CONSTRAINT constraint_name constraint_definition
+```
+
+The `ALTER TABLE `statement allows you to add or remove columns from an existing table, modify the data type or size of an existing column, and add or remove constraints. Here are some examples:
+
+1. Add a new column to a table:
+
+```sql
+ALTER TABLE employees
+ADD email VARCHAR(255) NOT NULL;
+```
+
+2. Modify the data type of an existing column:
+
+```sql
+ALTER TABLE employees
+ALTER COLUMN birthdate DATE;
+```
+
+3. Drop a column from a table:
+
+```sql
+ALTER TABLE employees
+DROP COLUMN email;
+```
+
+4. Add a constraint to a table:
+
+```sql
+ALTER TABLE employees
+ADD CONSTRAINT pk_employee PRIMARY KEY (employee_id);
+```
+
+5. Drop a constraint from a table:
+
+```sql
+ALTER TABLE employees
+DROP CONSTRAINT pk_employee;
+```
+Note that the specific syntax and options available for the `ALTER TABLE` statement may vary depending on the database management system you are using.
+
 #### Q. What are Heap tables in SQL?
 
-*ToDo*
+In SQL Server, a heap table is a table without a clustered index. In other words, it is a table that stores data without any particular order or structure. Instead of using a clustered index, a heap table uses a heap structure to store data.
+
+When data is inserted into a heap table, it is added to the end of the table, without any specific ordering. When data is queried from a heap table, the SQL Server Database Engine must scan the entire table to find the requested data. This can be slow and inefficient, especially as the table grows larger.
+
+Heap tables are useful for storing temporary or transient data that does not need to be stored in a specific order or accessed frequently. However, for large, frequently accessed tables, it is generally recommended to use a clustered index to improve performance.
+
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -474,7 +607,81 @@ mysql> desc BlobTableDemo;
 <br/>
 
 #### Q. What are query types in a database?
+
+In a database, there are typically three main types of queries:
+
+1. Select Query: This type of query is used to retrieve data from a table or a set of tables. The SELECT statement is used to specify the columns to be retrieved and the table(s) from which to retrieve the data. This type of query is used most frequently in database applications.
+
+2. Insert Query: This type of query is used to insert new data into a table. The INSERT statement is used to specify the values to be inserted into each column of the table.
+
+3. Update Query: This type of query is used to modify existing data in a table. The UPDATE statement is used to specify which columns to modify and the new values for those columns. The WHERE clause is used to specify which rows to update.
+
+There are also other types of queries, such as DELETE queries to delete data from a table, and JOIN queries to combine data from multiple tables, but these three are the most fundamental types of queries in a database.
+
 #### Q. What is the difference between UNION and UNION ALL?
+
+In SQL, `UNION` and `UNION ALL` are used to combine the results of two or more `SELECT` statements. The main difference between `UNION` and `UNION ALL` is that `UNION` removes any duplicate rows from the final result set, while `UNION` ALL retains all the rows, including duplicates.
+
+Here's an example to illustrate the difference:
+
+Suppose you have two tables, Table1 and Table2, with the following data:
+
+Table1:
+
+| Column1 | Column2 |
+|---------|---------|
+|    A    |	   1    |
+|    B	  |    2    |
+|    C	  |    3    |
+
+Table2:
+
+| Column1 | Column2 |
+|---------|---------|
+|    D    |	   4    |
+|    B	  |    2    |
+|    E	  |    5    |
+
+If you run the following `UNION` query:
+
+```sql
+SELECT * FROM Table1
+UNION
+SELECT * FROM Table2
+```
+The result will be:
+
+| Column1 | Column2 |
+|---------|---------|
+|    A    |	   1    |
+|    B	  |    2    |
+|    C	  |    3    |
+|    D	  |    4    |
+|    E	  |    5    |
+
+
+Notice that the duplicate row with Column1 = B has been removed from the final result set.
+
+On the other hand, if you run the following `UNION ALL` query:
+
+```sql
+SELECT * FROM Table1
+UNION ALL
+SELECT * FROM Table2
+```
+The result will be:
+
+| Column1 | Column2 |
+|---------|---------|
+|    A    |	   1    |
+|    B	  |    2    |
+|    C	  |    3    |
+|    D	  |    4    |
+|    B    |    2    |
+|    E	  |    5    |
+
+In this case, the duplicate row with Column1 = B has been retained in the final result set.
+
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
