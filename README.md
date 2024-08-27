@@ -969,14 +969,73 @@ Following are different types of Joins:
 | 06. |SELECT c1, c2 FROM t1, t2 |Select columns c1 and c2 from a table named t1 and produce a Cartesian product of rows in tables|
 | 07. |SELECT c1, c2 FROM t1 A INNER JOIN t2 B on condition |Select columns c1 and c2 from a table named t1 and joint it to itself using an INNER JOIN clause|
 
-#### Q. What is full join in SQL?
-#### Q. What is an outer join in SQL?
-#### Q. What is an inner join in SQL?
-#### Q. What is left join in SQL Server?
-#### Q. What is a right join in SQL Server?
-#### Q. What is the default join in SQL?
+## Q. What is full join in SQL?
 
-*ToDo*
+A **FULL JOIN** (or **FULL OUTER JOIN**) in SQL returns all records when there is a match in either the left or right table. It combines the results of both LEFT JOIN and RIGHT JOIN. When there is no match, NULL values are returned for columns from the table that lacks a match.
+
+Example:
+```sql
+SELECT *
+FROM TableA
+FULL JOIN TableB
+ON TableA.id = TableB.id;
+```
+
+## Q. What is an outer join in SQL?
+
+An **OUTER JOIN** in SQL refers to joins that return not only the rows with matching keys in both tables but also the rows with no corresponding key in one of the tables. There are three types of OUTER JOINS:
+- **LEFT OUTER JOIN**: Returns all rows from the left table, and the matched rows from the right table. If no match is found, NULL values are returned for columns from the right table.
+- **RIGHT OUTER JOIN**: Returns all rows from the right table, and the matched rows from the left table. If no match is found, NULL values are returned for columns from the left table.
+- **FULL OUTER JOIN**: Returns all rows when there is a match in either table, filling in NULLs when there are no matches.
+
+## Q. What is an inner join in SQL?
+
+An **INNER JOIN** in SQL returns only the rows where there is a match in both tables. It excludes rows that do not have matching values in both tables.
+
+Example:
+```sql
+SELECT *
+FROM TableA
+INNER JOIN TableB
+ON TableA.id = TableB.id;
+```
+
+## Q. What is left join in SQL Server?
+
+A **LEFT JOIN** (or **LEFT OUTER JOIN**) in SQL Server returns all records from the left table (TableA), and the matched records from the right table (TableB). If there is no match, the result is NULL on the side of the right table.
+
+Example:
+```sql
+SELECT *
+FROM TableA
+LEFT JOIN TableB
+ON TableA.id = TableB.id;
+```
+
+## Q. What is a right join in SQL Server?
+
+A **RIGHT JOIN** (or **RIGHT OUTER JOIN**) in SQL Server returns all records from the right table (TableB), and the matched records from the left table (TableA). If there is no match, the result is NULL on the side of the left table.
+
+Example:
+```sql
+SELECT *
+FROM TableA
+RIGHT JOIN TableB
+ON TableA.id = TableB.id;
+```
+
+## Q. What is the default join in SQL?
+
+The **default join** in SQL is the **INNER JOIN**. When you perform a JOIN without specifying the type, SQL assumes it to be an INNER JOIN, meaning it will only return rows where there is a match in both tables.
+
+Example:
+```sql
+SELECT *
+FROM TableA
+JOIN TableB
+ON TableA.id = TableB.id;
+```
+
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
