@@ -1228,7 +1228,7 @@ A **CTE** (`WITH`) is a temporary named result set scoped to a single statement.
 
 ## Basic Queries
 
-**01. Execute a `.sql` script file from the command line:**
+**Q. Execute a `.sql` script file from the command line:**
 
 ```sql
 -- Using sqlcmd utility (Command Prompt / PowerShell)
@@ -1250,7 +1250,7 @@ Invoke-Sqlcmd -ServerInstance "localhost" -Database "AdventureWorks" -InputFile 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-**02. MSSQL Server Performance Queries:**
+**Q. MSSQL Server Performance Queries:**
 
 ```sql
 -- Rebuild index to reduce fragmentation (equivalent of OPTIMIZE TABLE)
@@ -1318,7 +1318,7 @@ ORDER BY ips.avg_fragmentation_in_percent DESC;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-**04. Table Related Queries:**
+**Q. Table Related Queries:**
 
 ```sql
 -- Get the last 4 characters of a column
@@ -1390,7 +1390,7 @@ DROP TABLE IF EXISTS table_name;  -- IF EXISTS supported from SQL Server 2016+
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-**05. Date and Time:**
+**Q. Date and Time:**
 
 ```sql
 -- Show server time zone / UTC offset
@@ -1444,7 +1444,7 @@ SELECT TRY_CONVERT(DATETIME2, '2026-04-19 14:30:00') AS SafeParse;  -- returns N
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-**06. MSSQL Server Miscellaneous Queries:**
+**Q. MSSQL Server Miscellaneous Queries:**
 
 ```sql
 -- Generate a unique GUID (equivalent of uuid())
@@ -1522,8 +1522,6 @@ GROUP BY DepartmentID;
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
----
 
 ## Window Functions
 
@@ -1610,8 +1608,6 @@ Window functions cannot appear in `WHERE` or `HAVING` directly — wrap them in 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
----
-
 ## Transactions
 
 ```sql
@@ -1672,8 +1668,6 @@ Always pair `BEGIN TRANSACTION` with either `COMMIT` or `ROLLBACK`. Use `SET XAC
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
----
 
 ## Control Flow (IF / WHILE / TRY...CATCH)
 
@@ -1755,8 +1749,6 @@ Use `TRY...CATCH` to handle errors gracefully inside stored procedures and batch
     <b><a href="#">↥ back to top</a></b>
 </div>
 
----
-
 ## String Functions
 
 ```sql
@@ -1822,9 +1814,7 @@ SELECT ISNUMERIC('1e3')         AS Numeric;    -- 1 (includes scientific notatio
     <b><a href="#">↥ back to top</a></b>
 </div>
 
----
-
-## JSON Functions (SQL Server 2016+)
+## JSON Functions
 
 ```sql
 -- Validate JSON
@@ -1886,8 +1876,6 @@ FROM Products WHERE CategoryID = 1;
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
----
 
 ## Constraints
 
@@ -1963,8 +1951,6 @@ SQL Server enforces data integrity through six constraint types: `PRIMARY KEY` (
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
----
 
 ## BACKUP / RESTORE
 
