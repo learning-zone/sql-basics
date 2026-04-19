@@ -1,4 +1,4 @@
-# MSSQL-Server 2025 Frequently Questions
+# MSSQL-Server 2025 Frequently Asked Questions
 
 <br/>
 
