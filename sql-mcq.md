@@ -108,8 +108,6 @@ SELECT * FROM Employees WHERE Salary NOT IN (50000, 60000, NULL);
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
----
-
 ## 2. Joins & Subqueries
 
 **Q.** A developer writes the following query to find all customers who have never placed an order:
@@ -198,8 +196,6 @@ The subquery always returns exactly one row. Which change would most likely impr
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
----
-
 ## 3. Indexes & Performance
 
 **Q.** A table `SalesOrders` has a clustered index on `OrderID`. A DBA adds a non-clustered index on `CustomerID`. What is physically stored in the non-clustered index leaf pages?
@@ -271,8 +267,6 @@ The subquery always returns exactly one row. Which change would most likely impr
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
-
----
 
 ## 4. Stored Procedures & Functions
 
@@ -361,8 +355,6 @@ The query scans 1 million rows and runs very slowly. A DBA suggests replacing it
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
----
-
 ## 5. Transactions & Concurrency
 
 **Q.** Session A begins a transaction and updates a row in `Accounts`. Session B then tries to `SELECT` the same row with the default isolation level. What happens in SQL Server?
@@ -444,8 +436,6 @@ An error occurs on the second INSERT (e.g., a foreign key violation). What happe
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
----
-
 ## 6. Views & CTEs
 
 **Q.** A developer creates a view and tries to insert data through it:
@@ -519,8 +509,6 @@ UPDATE CTE SET Salary = Salary * 1.10;
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
-
----
 
 ## 7. Window Functions
 
@@ -596,8 +584,6 @@ What does the third argument `0` in `LAG(Revenue, 1, 0)` specify?
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
----
-
 ## 8. JSON & XML Support
 
 **Q.** A table `Events` has a column `Details NVARCHAR(MAX)` that stores JSON like `{"user":"Alice","action":"login","ip":"10.0.0.1"}`. Which T-SQL expression extracts the `action` value?
@@ -663,8 +649,6 @@ What does the `WITH` clause do here?
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
----
-
 ## 9. Security & Permissions
 
 **Q.** A developer creates a stored procedure that accesses a table owned by a different schema. When a user executes the procedure, they get a permissions error on the underlying table. What concept explains why this happens, and what is the best fix?
@@ -722,8 +706,6 @@ What does the `WITH` clause do here?
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
-
----
 
 ## 10. Database Design & Normalization
 
@@ -783,8 +765,6 @@ What does the `WITH` clause do here?
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
----
-
 ## 11. Backup & Recovery
 
 **Q.** A DBA takes a full backup of a database on Sunday night and transaction log backups every hour. The database crashes at 10:45 AM on Wednesday. What is the correct restore sequence to recover to the point of failure?
@@ -842,8 +822,6 @@ What does the `WITH` clause do here?
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
-
----
 
 ## 12. Query Optimization & Execution Plans
 
@@ -909,8 +887,6 @@ The query does a full table scan despite an index on `OrderDate`. What is the ca
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
----
-
 ## 13. Temporal Tables & Change Tracking
 
 **Q.** A developer needs to query the state of a `Contracts` table as it was on `'2025-06-15 12:00:00'`. The table is configured as a system-versioned temporal table. Which T-SQL syntax retrieves the historical snapshot?
@@ -955,8 +931,6 @@ The query does a full table scan despite an index on `OrderDate`. What is the ca
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
----
-
 ## 14. Partitioning & Columnstore Indexes
 
 **Q.** A `SalesHistory` table has 5 billion rows with data from 2000 to 2025. Queries always filter on a specific year. A DBA recommends table partitioning by year. What is the primary performance benefit?
@@ -1000,8 +974,6 @@ The query does a full table scan despite an index on `OrderDate`. What is the ca
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
-
----
 
 ## 15. New Features in SQL Server 2025
 
