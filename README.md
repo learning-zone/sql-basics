@@ -36,7 +36,8 @@
 * [SQL Triggers](#-20-sql-triggers)
 * [SQL Cursors](#-21-sql-cursors)
 * [SQL Stored Procedures](#-22-sql-stored-procedures)
-* [Miscellaneous](#-23-miscellaneous)
+* [DACPAC & Database Deployment](#-23-dacpac--database-deployment)
+* [Miscellaneous](#-24-miscellaneous)
 
 <br/>
 
@@ -2937,7 +2938,374 @@ SELECT @Count AS EmployeeCount;
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## # 23. Miscellaneous
+## # 23. DACPAC & Database Deployment
+
+<br/>
+
+
+## Q. What is a DACPAC and how does it differ from a BACPAC?
+
+A **DACPAC** (Data-tier Application Package) is a single `.dacpac` file — a ZIP archive — that contains the **schema** of a SQL Server database (tables, views, stored procedures, indexes, constraints, etc.). It captures the logical structure only, with no data rows.
+
+A **BACPAC** (`.bacpac`) extends this by also including **data**. It is intended for import/export of both schema and data, typically for migrating databases or creating backups for archival purposes.
+
+| Feature | DACPAC | BACPAC |
+|---|---|---|
+| Contains schema | Yes | Yes |
+| Contains data | No | Yes |
+| Primary use | Schema deployment, upgrade, CI/CD | Database migration, point-in-time export |
+| Compare / drift detection | Yes (`SqlPackage /Action:DriftReport`) | No |
+| Incremental upgrade | Yes (generates a diff script) | No — always a full import |
+| File extension | `.dacpac` | `.bacpac` |
+
+```sql
+-- After deploying a DACPAC, verify the deployed schema version stored in the DAC metadata
+SELECT
+    instance_name,
+    type_name,
+    description,
+    create_date
+FROM   msdb.dbo.sysdac_instances;
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. How do you create a DACPAC from an existing SQL Server database?
+
+There are three common ways to extract a DACPAC:
+
+**1. Using SqlPackage.exe (command line — recommended for CI/CD):**
+
+```cmd
+-- Extract the schema of MyDatabase into MyDatabase.dacpac
+SqlPackage.exe ^
+    /Action:Extract ^
+    /SourceServerName:"localhost\SQLEXPRESS" ^
+    /SourceDatabaseName:"MyDatabase" ^
+    /SourceUser:"sa" ^
+    /SourcePassword:"YourPassword" ^
+    /TargetFile:"C:\Deployments\MyDatabase.dacpac" ^
+    /p:ExtractAllTableData=false ^
+    /p:VerifyExtraction=true
+```
+
+**2. Using SQL Server Management Studio (SSMS):**
+
+Right-click the database → **Tasks** → **Extract Data-tier Application** → follow the wizard → saves a `.dacpac` file.
+
+**3. Using Visual Studio SQL Server Data Tools (SSDT):**
+
+Build a **SQL Server Database Project** → `Build` produces a `.dacpac` in the `bin\Debug` or `bin\Release` folder automatically.
+
+```sql
+-- After extraction, inspect what the DACPAC captured
+-- (query on the target server after deployment)
+SELECT
+    d.name           AS DatabaseName,
+    p.name           AS PropertyName,
+    p.value          AS PropertyValue
+FROM   sys.databases d
+CROSS APPLY (
+    VALUES
+        ('CompatibilityLevel', CAST(d.compatibility_level AS NVARCHAR(10))),
+        ('CollationName',      d.collation_name),
+        ('RecoveryModel',      d.recovery_model_desc)
+) AS p(name, value)
+WHERE  d.name = 'MyDatabase';
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. How do you deploy a DACPAC to a SQL Server database?
+
+**SqlPackage.exe** is the primary deployment tool. The `/Action:Publish` action compares the DACPAC schema against the target database and generates then executes an incremental upgrade script.
+
+```cmd
+-- Deploy (publish) a DACPAC to an existing or new database
+SqlPackage.exe ^
+    /Action:Publish ^
+    /SourceFile:"C:\Deployments\MyDatabase.dacpac" ^
+    /TargetServerName:"prod-sql01" ^
+    /TargetDatabaseName:"MyDatabase" ^
+    /TargetUser:"deploy_user" ^
+    /TargetPassword:"DeployPassword" ^
+    /p:BlockOnPossibleDataLoss=true ^
+    /p:DropObjectsNotInSource=false ^
+    /p:GenerateSmartDefaults=true
+```
+
+**Key publish properties:**
+
+| Property | Default | Description |
+|---|---|---|
+| `BlockOnPossibleDataLoss` | `true` | Abort if the deployment could destroy data (e.g. column drop, shrink) |
+| `DropObjectsNotInSource` | `false` | Remove objects in the DB that are absent from the DACPAC |
+| `GenerateSmartDefaults` | `false` | Auto-supply defaults when adding NOT NULL columns to existing tables |
+| `IncludeTransactionalScripts` | `false` | Wrap deployment in a transaction for atomic rollback |
+| `ScriptDatabaseCompatibility` | `false` | Also update the database compatibility level |
+
+**Generate the script without executing (dry-run / review):**
+
+```cmd
+SqlPackage.exe ^
+    /Action:Script ^
+    /SourceFile:"C:\Deployments\MyDatabase.dacpac" ^
+    /TargetServerName:"prod-sql01" ^
+    /TargetDatabaseName:"MyDatabase" ^
+    /TargetUser:"deploy_user" ^
+    /TargetPassword:"DeployPassword" ^
+    /OutputPath:"C:\Deployments\UpgradeScript.sql"
+```
+
+This produces a plain T-SQL script you can review and run manually — useful for change-control approval workflows.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the difference between SqlPackage /Action:Publish and /Action:DeployReport?
+
+| Action | Output | Use |
+|---|---|---|
+| `Publish` | Applies schema changes to the target database live | Actual deployment |
+| `Script` | T-SQL upgrade script file | Review / manual execution |
+| `DeployReport` | XML report listing what **would** change | Pre-deployment impact analysis |
+| `DriftReport` | XML report of changes made **outside** source control | Drift / compliance detection |
+| `Extract` | Produces a `.dacpac` from an existing database | Capture current schema |
+| `Export` | Produces a `.bacpac` (schema + data) | Migration / archival |
+| `Import` | Restores a `.bacpac` to a new database | Restore from BACPAC |
+
+```cmd
+-- DeployReport: see what would change BEFORE deploying
+SqlPackage.exe ^
+    /Action:DeployReport ^
+    /SourceFile:"C:\Deployments\MyDatabase.dacpac" ^
+    /TargetServerName:"prod-sql01" ^
+    /TargetDatabaseName:"MyDatabase" ^
+    /TargetUser:"deploy_user" ^
+    /TargetPassword:"DeployPassword" ^
+    /OutputPath:"C:\Deployments\DeployReport.xml"
+
+-- DriftReport: find manual changes made directly on the server (schema drift)
+SqlPackage.exe ^
+    /Action:DriftReport ^
+    /TargetServerName:"prod-sql01" ^
+    /TargetDatabaseName:"MyDatabase" ^
+    /TargetUser:"deploy_user" ^
+    /TargetPassword:"DeployPassword" ^
+    /OutputPath:"C:\Deployments\DriftReport.xml"
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. How do you use a DACPAC in a CI/CD pipeline?
+
+A typical pipeline for SQL Server database deployments uses SSDT (SQL Server Database Projects) to build the DACPAC and SqlPackage to deploy it.
+
+**GitHub Actions example:**
+
+```yaml
+# .github/workflows/sql-deploy.yml
+name: Deploy Database
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Build the SSDT project → produces bin/Release/MyDatabase.dacpac
+      - name: Build SSDT Project
+        run: |
+          dotnet build MyDatabase/MyDatabase.sqlproj `
+            --configuration Release
+
+      # Dry-run: generate a deploy report before applying changes
+      - name: Deploy Report (dry run)
+        run: |
+          SqlPackage.exe `
+            /Action:DeployReport `
+            /SourceFile:"MyDatabase/bin/Release/MyDatabase.dacpac" `
+            /TargetConnectionString:"Server=${{ secrets.SQL_SERVER }};Database=MyDatabase;User Id=${{ secrets.SQL_USER }};Password=${{ secrets.SQL_PASSWORD }};Encrypt=True;" `
+            /OutputPath:"deploy-report.xml"
+
+      # Deploy to target environment
+      - name: Deploy DACPAC
+        run: |
+          SqlPackage.exe `
+            /Action:Publish `
+            /SourceFile:"MyDatabase/bin/Release/MyDatabase.dacpac" `
+            /TargetConnectionString:"Server=${{ secrets.SQL_SERVER }};Database=MyDatabase;User Id=${{ secrets.SQL_USER }};Password=${{ secrets.SQL_PASSWORD }};Encrypt=True;" `
+            /p:BlockOnPossibleDataLoss=true `
+            /p:GenerateSmartDefaults=true
+
+      - name: Upload Deploy Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-report
+          path: deploy-report.xml
+```
+
+**Azure DevOps YAML pipeline snippet:**
+
+```yaml
+- task: SqlAzureDacpacDeployment@1
+  displayName: 'Deploy DACPAC to Azure SQL'
+  inputs:
+    azureSubscription: 'MyServiceConnection'
+    AuthenticationType: 'server'
+    ServerName: '$(SQL_SERVER)'
+    DatabaseName: 'MyDatabase'
+    SqlUsername: '$(SQL_USER)'
+    SqlPassword: '$(SQL_PASSWORD)'
+    DacpacFile: '$(Pipeline.Workspace)/drop/MyDatabase.dacpac'
+    AdditionalArguments: >
+      /p:BlockOnPossibleDataLoss=true
+      /p:GenerateSmartDefaults=true
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. How do you handle data loss risks when deploying a DACPAC?
+
+By default `BlockOnPossibleDataLoss=true` prevents accidental data loss. When a destructive change is intentional, you must explicitly allow it and handle it safely.
+
+**Common data-loss scenarios and safe patterns:**
+
+```sql
+-- SCENARIO 1: Dropping a column
+-- Risk: column data is permanently lost.
+-- Safe pattern: rename first (deploy), migrate data, then drop in next release.
+
+-- Release 1: add new column, backfill data
+ALTER TABLE Orders ADD OrderStatusNew NVARCHAR(50);
+UPDATE Orders SET OrderStatusNew = OrderStatus;   -- migrate data
+
+-- Release 2: drop the old column (after confirming data is correct)
+ALTER TABLE Orders DROP COLUMN OrderStatus;
+```
+
+```sql
+-- SCENARIO 2: Shrinking a column (VARCHAR(500) → VARCHAR(100))
+-- Risk: truncation of existing values.
+-- Safe pattern: validate before shrinking.
+
+-- Check for values that would be truncated
+SELECT COUNT(*) AS WillTruncate
+FROM   Orders
+WHERE  LEN(OrderStatus) > 100;
+
+-- Only shrink if count = 0
+ALTER TABLE Orders ALTER COLUMN OrderStatus NVARCHAR(100);
+```
+
+```sql
+-- SCENARIO 3: Adding a NOT NULL column to a table with existing rows
+-- Requires a default; use /p:GenerateSmartDefaults=true OR add default in schema.
+
+-- In the DACPAC source (SSDT), define the column with a default constraint:
+ALTER TABLE Orders
+    ADD IsArchived BIT NOT NULL
+    CONSTRAINT DF_Orders_IsArchived DEFAULT (0);
+
+-- SqlPackage with GenerateSmartDefaults will auto-supply 0 for existing rows.
+```
+
+```cmd
+-- Override BlockOnPossibleDataLoss for intentional destructive deployments
+-- Use with caution and always take a backup first
+SqlPackage.exe ^
+    /Action:Publish ^
+    /SourceFile:"C:\Deployments\MyDatabase.dacpac" ^
+    /TargetServerName:"prod-sql01" ^
+    /TargetDatabaseName:"MyDatabase" ^
+    /TargetUser:"deploy_user" ^
+    /TargetPassword:"DeployPassword" ^
+    /p:BlockOnPossibleDataLoss=false ^
+    /p:DropObjectsNotInSource=true
+```
+
+> **Best practice:** Always run `SqlPackage /Action:Script` or `/Action:DeployReport` first, review the output, take a full database backup (`BACKUP DATABASE`), then deploy.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is an SSDT SQL Server Database Project and how does it relate to DACPACs?
+
+**SQL Server Data Tools (SSDT)** is a Visual Studio / VS Code extension that lets you manage a database schema as **source-controlled code** (`.sql` files) in a **Database Project** (`.sqlproj`). Building the project compiles all the `.sql` files into a DACPAC.
+
+**Project structure:**
+
+```
+MyDatabase.sqlproj
+├── Tables/
+│   ├── dbo.Customers.sql
+│   ├── dbo.Orders.sql
+│   └── dbo.Products.sql
+├── Views/
+│   └── dbo.vw_ActiveOrders.sql
+├── StoredProcedures/
+│   └── dbo.usp_GetCustomerOrders.sql
+├── Indexes/
+│   └── IX_Orders_CustomerID.sql
+└── PostDeployment/
+    └── SeedData.sql          -- runs after schema deployment (data seeding)
+```
+
+**Each object is a standalone `.sql` file:**
+
+```sql
+-- Tables/dbo.Customers.sql
+CREATE TABLE [dbo].[Customers]
+(
+    [CustomerID]   INT           NOT NULL IDENTITY(1,1),
+    [Name]         NVARCHAR(200) NOT NULL,
+    [Email]        NVARCHAR(320) NOT NULL,
+    [City]         NVARCHAR(100) NULL,
+    [CreatedAt]    DATETIME2     NOT NULL CONSTRAINT DF_Customers_CreatedAt DEFAULT GETUTCDATE(),
+    CONSTRAINT PK_Customers PRIMARY KEY CLUSTERED ([CustomerID]),
+    CONSTRAINT UIX_Customers_Email UNIQUE ([Email])
+);
+```
+
+```sql
+-- PostDeployment/SeedData.sql  (runs after every deployment; use MERGE to be idempotent)
+MERGE INTO [dbo].[Customers] AS target
+USING (VALUES
+    (1, 'Alice',   'alice@example.com',   'London'),
+    (2, 'Bob',     'bob@example.com',     'Paris')
+) AS source (CustomerID, Name, Email, City)
+ON target.CustomerID = source.CustomerID
+WHEN NOT MATCHED THEN
+    INSERT (CustomerID, Name, Email, City)
+    VALUES (source.CustomerID, source.Name, source.Email, source.City);
+```
+
+**Build the project:**
+
+```cmd
+-- MSBuild / dotnet build produces bin\Release\MyDatabase.dacpac
+dotnet build MyDatabase.sqlproj --configuration Release
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## # 24. Miscellaneous
 
 <br/>
 
